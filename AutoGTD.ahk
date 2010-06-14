@@ -1,26 +1,47 @@
 ;*******************************************************************************
 ;				Information
 ;*******************************************************************************
-;Title:			AutoGTD v0.9
-;Date:			6 Jun 2010
+;Title:			AutoGTD v0.5
+;Date:			11 Jun 2010
 ;Author:		Dean Householder <deanhouseholder@gmail.com>
-; AutoGTD is a set of Outlook Macros to help implement the Getting Things Done 
-; concepts into Outlook.  It provides configurable shortcuts which are able to 
-; move emails to folders, add categories, reminders, and flags to emails.  It 
-; can perform customized searches and then move all remaining emails to a folder.  
-; All of these types of actions can be mapped to single character shortcuts that 
+; AutoGTD is a set of Outlook Macros to help implement the Getting Things Done
+; concepts into Outlook.  It provides configurable shortcuts which are able to
+; move emails to folders, add categories, reminders, and flags to emails.  It
+; can perform customized searches and then move all remaining emails to a folder.
+; All of these types of actions can be mapped to single character shortcuts that
 ; you choose.
+
+;*******************************************************************************
+;				License
+;*******************************************************************************
+; AutoGTD - Outlook Hotkeys
+; Copyright (C) 2010  Dean Householder
+; 
+; This program is free software: you can redistribute it and/or modify
+; it under the terms of the GNU General Public License as published by
+; the Free Software Foundation, either version 3 of the License, or
+; (at your option) any later version.
+; 
+; This program is distributed in the hope that it will be useful,
+; but WITHOUT ANY WARRANTY;  without even the implied warranty of
+; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+; GNU General Public License for more details.
+; 
+; You should have received a copy of the GNU General Public License
+; along with this program.  If not, see <http://www.gnu.org/licenses/>.
+;
+; You can contact the author by email at deanhouseholder@gmail.com
 
 
 ;*******************************************************************************
 ;				Version History
 ;*******************************************************************************
-;6 June 2010 - 0.9 Initial Release
+;11 June 2010 - 0.5 Initial Release
 
 ;*******************************************************************************
 ;				Variables
 ;*******************************************************************************
-VersionString = 0.9
+AppVersion    = 0.5
 AppName       = AutoGTD
 AppNameFull   = AutoGTD - Outlook Hotkeys
 AppFileName   = AutoGTD
@@ -45,12 +66,15 @@ SetWorkingDir %A_ScriptDir%
 FileInstall, src\AutoGTD16.ico, %temp%\AutoGTD16.ico, 1
 FileInstall, src\AutoGTD128.png, %temp%\AutoGTD128.png, 1
 FileInstall, src\AutoGTD400x64.gif, %temp%\AutoGTD400x64.gif, 1
+FileInstall, src\AutoGTDLogo.png, %temp%\AutoGTDLogo.png, 1
+FileInstall, src\license.txt, %A_ScriptDir%\license.txt, 1
+FileInstall, src\AutoGTD Help.pdf, %A_ScriptDir%\AutoGTD Help.pdf, 1
 
 ;Check for first run
 IfNotExist, %A_ScriptDir%\%ININame%
 {
 	FileInstall, src\AutoGTDDefault.ini, %A_ScriptDir%\%ININame%, 0
-	Msgbox, 4, Welcome to %AppName%, It looks like this is your first time running %AppName%.  Would you like to read the Help?
+	Msgbox, 4, Welcome to %AppName% %AppVersion%, It looks like this is your first time running %AppName%.  Would you like to read the Help which describes how to set out Outlook for use with this program?
 	IfMsgbox, Yes
 	{
 		Gosub, LoadStrings
@@ -63,7 +87,7 @@ IfNotExist, %A_ScriptDir%\%ININame%
 ;*******************************************************************************
 Menu, Tray, Icon, %temp%\%AppFileName%16.ico
 Menu, Tray, NoStandard
-Menu, tray, add, Show Cheat Sheet, HotkeysHelper
+Menu, tray, add, Show Cheat Sheet, CheatSheetHelper
 Menu, Tray, Add
 Menu, Tray, Add, Help, HelpProgram
 Menu, Tray, Add, Run %AppName% on Startup, ToggleStartup
@@ -86,22 +110,29 @@ Gosub, LoadStrings
 ;				Mapped Hotkeys
 ;*******************************************************************************
 
-; Press CTRL+Shift+` to reload the script
+; Press CTRL+Shift+` to reload the program
 ^+`::
-	SplashImage, %temp%\%AppName%400x64.gif, b1 cwffffff ct000000 fm16 wm550 fs12 ws550, Script Reloaded`n, %AppName%, , Arial
+	SplashImage, %temp%\%AppName%400x64.gif, b1 cwffffff ct000000 fm16 wm550 fs12 ws550, Program Settings Reloaded`n, %AppName%, , Arial
 	Sleep, 300
 	SplashImage, Off
 	Reload
 Return
 
-^!+w::
-	if SafeToRunMacro()
-		MsgBox, JumpToRun value: %JumpToRun%
-Return
-
+; Reload the script automatically whenever CTRL+s is pressed in editor
 ~^s::
 	IfWinActive, %A_ScriptName%
 		Reload
+Return
+
+; CTRL+Shift+Space to view Cheat Sheet
+^+Space::
+	GoSub, CheatSheetHelper
+Return
+
+; Shortcut to view the status of the JumpToRun value
+^!+w::
+	if SafeToRunMacro()
+		MsgBox, JumpToRun value: %JumpToRun%
 Return
 
 Return
@@ -151,7 +182,7 @@ CustomFilter(Name, Hotkey, Search, Folder, Read, NormalKey) {
 	if SafeToRunMacro()
 	{
 		Global AppName
-		;TrayTip, Timed TrayTip, updated AutoHotkey script
+		;TrayTip, Timed TrayTip, updated %AppName% Program
 		;ToolTip, `n`n`tCurrently Processing Macro: %Name%`t`t`n`n`t`tPress CTRL+Shift+` if the macro fails.`n`n `n, % A_ScreenWidth//2-232, A_ScreenHeight//2-55
 		SplashImage, %temp%\%AppName%400x64.gif, b1 cwffffff ct000000 fm16 wm550 fs10 ws550, Currently Processing Macro: %Name%`n`nPress CTRL+Shift+`` if the macro fails.`n, %AppName%, , Arial
 		Send, {F3}%Search%{ENTER}
@@ -172,7 +203,7 @@ CustomFilter(Name, Hotkey, Search, Folder, Read, NormalKey) {
 			Send, {HOME}Inbox{RIGHT}%Folder%{ENTER}
 		Else {
 			SplashImage, %temp%\%AppName%400x64.gif, b1 cwffffff ct000000 fm16 wm550 fs10 ws550, Macro Failed: %Name%`nPlease try again.`nPress CTRL+Shift+`` if the macro fails.`n, %AppName% - Macro Failed!, , Arial
-			Sleep, 5000
+			Sleep, 2000
 		}
 		Status2 := WinWaitFull("Microsoft Outlook"),
 		If (Status2 = 0)
@@ -393,29 +424,108 @@ Return
 ;				Labels
 ;*******************************************************************************
 
-HotkeysHelper:
-	MsgBox, 64, %AppNameFull% Cheat Sheet, %CheatSheet%
-return
+CheatSheetHelper:
+;	MsgBox, 64, %AppNameFull% Cheat Sheet, %CheatSheet%
 
-ReloadProgram:
-	Reload
+	;Height := % A_ScreenHeight-320 > 700 ? 700 : A_ScreenHeight-320
+	Height := 440
+	Gui, 1:Add, Picture, x200 y-5 w128, %temp%\AutoGTD128.png
+	Gui, 1:Font, s2, Arial Black
+	Gui, 1:Add, Text, x+35, `n
+	Gui, 1:Font, s22, Arial Black
+	Gui, 1:Add, Text, , %AppName%`nShortcuts
+
+	Gui, 1:Font, s10, Tahoma
+	Gui, 1:Add, Text, x200 y125, Your current Outlook Hotkeys are mapped to:
+
+	Gui, 1:Font, s8 bold, Tahoma
+	Gui, 1:Add, Text, x5 y150, You Press                Description
+	Gui, 1:Add, Text, x360 y150, You Press                Description
+
+	Gui, 1:Font, normal
+	Gui, 1:Add, Edit, x5 y165 w350 h%Height% +VScroll +ReadOnly +Resize -TabStop, %CheatSheet1%
+	Gui, 1:Add, Edit, x360 y165 w350 h%Height% +VScroll +ReadOnly +Resize -TabStop, %CheatSheet2%
+
+	Gui, 1:Font, s10, Tahoma
+	Gui, 1:Add, Text, x25 y610, Remember to reload %AppName% after you make changes to %ININame% in order for the changes to take effect!
+
+	Gui, 1:Add, Button, x175 y630 w150 h35 Default, %A_Space% %A_Space% %A_Space% Close %A_Space% %A_Space% %A_Space%
+	Gui, 1:Add, Button, x375 y630 w150 h35, Change Hotkeys
+
+
+;	GuiControl,, Edit1, %CheatSheet1%
+	Gui, 1:Show, h680 w710, New GUI Window
 Return
+
+; Once help is complete, restore the original Help
+;HelpProgram:
+;	ContentHeight := 575
+;	WindowHeight := % A_ScreenHeight-300 > ContentHeight ? ContentHeight : A_ScreenHeight-300
+;	Gui, 2:Add, Picture, w200 h-1, %temp%\AutoGTDLogo.png
+;	if (WindowHeight < ContentHeight) {
+;		Gui, 2:Add, Edit, w765 h%WindowHeight% +VScroll +Resize +Readonly -TabStop, %HelpProgramText%
+;		Gui, 2:Add, Button, Default x345, %A_Space% %A_Space% %A_Space% Close %A_Space% %A_Space% %A_Space%
+;		GuiControl,, Edit1, %HelpProgramText%
+;	} Else {
+;		Gui, 2:Add, Text, w765 h%WindowHeight%, %HelpProgramText%
+;		Gui, 2:Add, Button, Default x345, %A_Space% %A_Space% %A_Space% Close %A_Space% %A_Space% %A_Space%
+;	}
+;	Gui, 2:Show,, %AppNameFull% - Help
+;Return
+
 
 HelpProgram:
-	Gui, Add, Picture, w128 h-1, %temp%\%AppName%128.png
-;   Gui, Add, Text, x5 y30 w20 h16 , %AppName%
-	Gui, Add, Text, w800 h600, %HelpProgramText%
-	Gui, Show,, %AppNameFull% - Help
+	Gui, 2:Add, Picture, w200 h-1, %temp%\AutoGTDLogo.png
+	Gui, 2:Add, Text, , %HelpProgramText%
+	Gui, 2:Add, Text, cBlue gWebSiteLinkHelp, http://www.deanhouseholder.com/AutoGTD/help
+	Gui, 2:Font, normal
+	Gui, 2:Add, Text, ,`nOr please click below to open the Help Documentation.`n
+	Gui, 2:Add, Button, Default x50 y350 w100, Close
+	Gui, 2:Add, Button, Default x175 y350 w100, Open Help
+	Gui, 2:Show, w350, %AppNameFull% - Help
 Return
+
 
 AboutProgram:
 ;	MsgBox %AppNameFull%`nby %AuthorName%`n`n%AuthorEmail%`n`n%AuthorWebsite%`n
-   Gui, Add, Text, , %AppNameFull%`n by %AuthorName%
-   Gui, Font, underline
-   Gui, Add, Text, cBlue gEmailMe, %AuthorEmail%
-   Gui, Font, underline
-   Gui, Add, Text, cBlue gWebSiteLink, %AuthorWebsite%`n
-   Gui, Show,, %AppNameFull% - About
+	Gui, 3:Add, Picture, w200 h-1, %temp%\AutoGTDLogo.png
+	Gui, 3:Add, Text, , %AppNameFull% %AppVersion%`n by %AuthorName%
+	Gui, 3:Font, underline
+	Gui, 3:Add, Text, cBlue gEmailMe, %AuthorEmail%
+	Gui, 3:Font, underline
+	Gui, 3:Add, Text, cBlue gWebSiteLink, %AuthorWebsite%
+	Gui, 3:Font, normal
+	Gui, 3:Add, Text, , %Copyright%
+	Gui, 3:Font, underline
+	Gui, 3:Add, Text, cBlue gCopyrightConditions, Click Here for details.`n
+	Gui, 3:Font, normal
+	Gui, 3:Add, Button, Default x100, Close
+	Gui, 3:Show,, %AppNameFull% - About
+Return
+
+ButtonClose:
+	Gui 1:Destroy
+Return
+
+2ButtonClose:
+	Gui 2:Destroy
+Return
+
+3ButtonClose:
+	Gui 3:Destroy
+Return
+
+ButtonChangeHotkeys:
+	;Gui 1:Destroy
+	Run %A_WinDir%\notepad.exe %A_ScriptDir%\%ININame%
+Return
+
+OpenDirectory:
+	Run, %A_WinDir%\explorer.exe %A_ScriptDir%, , Max
+Return
+
+ReloadProgram:
+	Reload
 Return
 
 EmailMe:
@@ -424,6 +534,18 @@ Return
 
 WebSiteLink:
 	Run %AuthorWebsite%
+Return
+
+WebSiteLinkHelp:
+	Run http://www.deanhouseholder.com/AutoGTD/help
+Return
+
+2ButtonOpenHelp:
+	Run "%A_ScriptDir%\AutoGTD Help.pdf"
+Return
+
+CopyrightConditions:
+	Run http://www.gnu.org/licenses/gpl.txt
 Return
 
 CloseProgram:
@@ -587,100 +709,84 @@ LoadHotkeys:
 Return
 
 LoadStrings:
-CheatSheet =
+CheatSheet1 =
 (
-Your current Outlook Hotkeys are mapped to:`n
-Mapped Hotkeys`tDescription
-%Category1Hotkey%`t`t%Category1Name%`t(Maps to: CTRL+F3)
-%Category2Hotkey%`t`t%Category2Name%`t(Maps to: CTRL+F4)
-%Category3Hotkey%`t`t%Category3Name%`t(Maps to: CTRL+F5)
-%Category4Hotkey%`t`t%Category4Name%`t(Maps to: CTRL+F6)
-%Category5Hotkey%`t`t%Category5Name%`t(Maps to: CTRL+F7)
-%Category6Hotkey%`t`t%Category6Name%`t(Maps to: CTRL+F8)
-%Category7Hotkey%`t`t%Category7Name%`t(Maps to: CTRL+F9)
-%Category8Hotkey%`t`t%Category8Name%`t(Maps to: CTRL+F10)
-%Category9Hotkey%`t`t%Category9Name%`t(Maps to: CTRL+F11)
-%Category10Hotkey%`t`t%Category10Name%`t(Maps to: CTRL+F12)
-%OpenCategories%`t`tOpen Categories Menu
-%SetReminder%`t`tSet a Reminder
-%CreateTask%`t`tCreate a Task
-%NewAppointment%`t`tCreate a new Appointment
+==Category Assignment Hotkeys==
+%Category1Hotkey%`t%Category1Name%`t(Maps to: CTRL+F3)
+%Category2Hotkey%`t%Category2Name%`t(Maps to: CTRL+F4)
+%Category3Hotkey%`t%Category3Name%`t(Maps to: CTRL+F5)
+%Category4Hotkey%`t%Category4Name%`t(Maps to: CTRL+F6)
+%Category5Hotkey%`t%Category5Name%`t(Maps to: CTRL+F7)
+%Category6Hotkey%`t%Category6Name%`t(Maps to: CTRL+F8)
+%Category7Hotkey%`t%Category7Name%`t(Maps to: CTRL+F9)
+%Category8Hotkey%`t%Category8Name%`t(Maps to: CTRL+F10)
+%Category9Hotkey%`t%Category9Name%`t(Maps to: CTRL+F11)
+%Category10Hotkey%`t%Category10Name%`t(Maps to: CTRL+F12)
+%OpenCategories%`tOpen Categories Menu
 
-%Move1Hotkey%`t`tMove selected messages to %Move1Folder%
-%Move2Hotkey%`t`tMove selected messages to %Move2Folder%
-%Move3Hotkey%`t`tMove selected messages to %Move3Folder%
-%Move4Hotkey%`t`tMove selected messages to %Move4Folder%
-%Move5Hotkey%`t`tMove selected messages to %Move5Folder%
-%Move6Hotkey%`t`tMove selected messages to %Move6Folder%
-%Move7Hotkey%`t`tMove selected messages to %Move7Folder%
-%Move8Hotkey%`t`tMove selected messages to %Move8Folder%
-%Move9Hotkey%`t`tMove selected messages to %Move9Folder%
+==Move Selected Emails to a Folder Hotkeys==
+%Move1Hotkey%`tMove message(s) to %Move1Folder%
+%Move2Hotkey%`tMove message(s) to %Move2Folder%
+%Move3Hotkey%`tMove message(s) to %Move3Folder%
+%Move4Hotkey%`tMove message(s) to %Move4Folder%
+%Move5Hotkey%`tMove message(s) to %Move5Folder%
+%Move6Hotkey%`tMove message(s) to %Move6Folder%
+%Move7Hotkey%`tMove message(s) to %Move7Folder%
+%Move8Hotkey%`tMove message(s) to %Move8Folder%
+%Move9Hotkey%`tMove message(s) to %Move9Folder%
 
-%JumpTo1Hotkey%`t`tSwitch to %JumpTo1Folder%
-%JumpTo2Hotkey%`t`tSwitch to %JumpTo2Folder%
-%JumpTo3Hotkey%`t`tSwitch to %JumpTo3Folder%
-%JumpTo4Hotkey%`t`tSwitch to %JumpTo4Folder%
-%JumpTo5Hotkey%`t`tSwitch to %JumpTo5Folder%
-%JumpTo6Hotkey%`t`tSwitch to %JumpTo6Folder%
-%JumpTo7Hotkey%`t`tSwitch to %JumpTo7Folder%
-%JumpTo8Hotkey%`t`tSwitch to %JumpTo8Folder%
-%JumpTo9Hotkey%`t`tSwitch to %JumpTo9Folder%
-%JumpTo0Hotkey%`t`tSwitch to %JumpTo0Folder%
+==Bulk-Move Emails to Folders Hotkeys==
+%Filter1Hotkey%`t%Filter1Name%
+%Filter2Hotkey%`t%Filter2Name%
+%Filter3Hotkey%`t%Filter3Name%
+%Filter4Hotkey%`t%Filter4Name%
+%Filter5Hotkey%`t%Filter5Name%
+%Filter6Hotkey%`t%Filter6Name%
+)
 
-%Filter1Hotkey%`t`t%Filter1Name%
-%Filter2Hotkey%`t`t%Filter2Name%
-%Filter3Hotkey%`t`t%Filter3Name%
-%Filter4Hotkey%`t`t%Filter4Name%
-%Filter5Hotkey%`t`t%Filter5Name%
-%Filter6Hotkey%`t`t%Filter6Name%
-`nHotKey Legend:`n^ Control`n! Alt`n+ Shift`n# Windows key`n
+CheatSheet2 =
+(
+==Jump to Folder Hotkeys==
+%JumpTo1Hotkey%`tSwitch to %JumpTo1Folder%
+%JumpTo2Hotkey%`tSwitch to %JumpTo2Folder%
+%JumpTo3Hotkey%`tSwitch to %JumpTo3Folder%
+%JumpTo4Hotkey%`tSwitch to %JumpTo4Folder%
+%JumpTo5Hotkey%`tSwitch to %JumpTo5Folder%
+%JumpTo6Hotkey%`tSwitch to %JumpTo6Folder%
+%JumpTo7Hotkey%`tSwitch to %JumpTo7Folder%
+%JumpTo8Hotkey%`tSwitch to %JumpTo8Folder%
+%JumpTo9Hotkey%`tSwitch to %JumpTo9Folder%
+%JumpTo0Hotkey%`tSwitch to %JumpTo0Folder%
+
+==Other Helpful Shortcut Hotkeys==
+%SetReminder%`tSet a Reminder
+%CreateTask%`tCreate a Task
+%NewAppointment%`tCreate a new Appointment
+
+`n==HotKey Legend:==`n^ Control`n! Alt`n+ Shift`n# Windows key`n
 To change these hotkeys, edit the %ININame% file.
-Press CTRL+c to copy this page to your clipboard.
 )
 ; example of how to replace modifiers with human readable versions
 ;  x := RegExReplace(x, "(?i)^(.+\.ahk) - Notepad$","$1")
 
 HelpProgramText =
 (
-This utility helps you implement the Getting Things Done (GTD) methodology in Outlook 2007 by giving macros with hotkeys that you can use to quickly organize your email messages to folders under your Inbox.
+AutoGTD Help
+This program helps you implement the Getting Things Done (GTD) 
+methodology in Outlook 2007 by giving macros with hotkeys that 
+you can use to quickly organize your email messages to folders 
+under your Inbox.
 
-There are four main types of macro hotkeys available in this script:
- • Archiving Messages - quickly selecting groups of messages and moving them to various folders
- • Jumping to Folders - quickly moving to common folders without needing to use the mouse
- • Categorizing Messages - quickly assign categories using the number keys 0-9 only
- • Shortcuts to Common Tasks - other nice to have shortcuts
-
-Getting Started:
-
-In order to use the Archiving and Jump To macros, you will need to create the following folders under your Inbox:
-Action (the folder to which you move all your "to do" emails)
-Alerts (if you want to use Nagios alert filtering)
-Archive (the folder to which you move all the other emails you want to archive)
-
-In order to use the Categorizing macros you will need to 1) create Categories and then 2) map them to the CTRL+F3-F12 hotkeys that Outlook allows, then 3) edit the %ININame% file to define/customize them (optional).
-
-1) To Create Macros:
-`tGo to the Actions Menu -> Categorize -> All Categories. (Or just press F2 when %AppFileName%.exe is running)
-2) Create each Category and map it to a CTRL+Fx key.  Here is a list of suggested category names following the GTD methodology:
-`t!Next
-`t@Computer
-`t@Read/Review
-`t@Someday
-`t@Waiting
-`t@Phone
-`t@Errands
-`t@Reference
-`t@Agenda
-`t@KillingTime
-`tYou can of course, customize this list with whatever categories you want.
-3) Edit the %ININame% file to configure the list of categories and hotkeys.  By default, the %ININame% file contains configuration pairs such as:
-`tCategory1`t= 1
-`tCategory1Name`t= !Next
-`tCategory2`t= 2
-`tCategory2Name`t= @Computer
-`n`tWith this format, you can customize which number on the keyboard will set which category.
+To view the full help, please visit:
 )
 
+Copyright =
+(
+%AppName% Copyright (C) 2010  %AuthorName%
+This program comes with ABSOLUTELY NO WARRANTY.
+This is free software, and you are welcome to 
+redistribute it under certain conditions.
+)
 Return
 
 ;*******************************************************************************
@@ -689,9 +795,6 @@ Return
 /*
 
 x Make multiple custom-built filters (get rid of nagios-specific filter and make it customizable)
-Allow for customizable macros in Outlook
- - Set flag
- - ?
 Macros for Compose window
 Macros for Tasks window
 Macros for Calendar window
@@ -736,4 +839,40 @@ There are macros here for both kinds of Inbox processing:
 2) Plow through reading and just quickly flag which ones need action.  Then mass-move the read-unflagged emails out.  Return to process only the flagged emails.
 This is sometimes helpful for clearing out dozens of emails and making sure you don't miss something critical hidden in the stack.
 - if you never clear your inbox and get yourself to work out of your Action folder, this will backfire.
+
+-----
+
+= Needed for 0.5 launch =
+X export license.txt w/ compile
+X redo help page
+X fix cheat sheet's edit button
+compile code and upload to SF.net
+X set cheat sheet to use two columns (too tall)
+
+------
+
+= After 0.5 launch =
+ - how to post on forums, report bugs, contact the author directly
+short features page
+redo screen shots
+ - http://www.piriform.com/defraggler/screenshots
+start setting up additional macros
+ - afterwards, update the Macros page
+ - integrate this paragraph:
+   When processing your email, every time you open a message use the 4Ds discussed as part of David Allen’s Getting Things Done.  Delete it immediately, Do it immediately, Delegate (or forward) it, or Defer it by converting it to a task or appointment. 
+ - also notes from above.
+ - verbage to delete or rename .ini file if it gets hosed and AutoGTD will create a new one
+ - verbage that you can remove any lines for macros you don't want to use
+   - test this
+search for new template for site (wider column) or modify current template
+record a video describing usage and play on AutoGTD site
+enable comments on the web site (CMSMS Module?)
+research features in commercial GTD Outlook program
+ - https://gtdsupport.netcentrics.com/AddedFiles/GTDV3.0FinalRelease.php
+Look for tips here: http://www.refocuser.com/2009/05/staying-focused-with-microsoft-outlook-email/
+build shortcut key for edit .ini file ?
+
+
+Fix .haccess problem on site: http://forum.cmsmadesimple.org/index.php?topic=1786.msg23118
+
 */
