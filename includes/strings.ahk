@@ -1,62 +1,111 @@
+Category1HotkeyMap := ConvertModifiers(Category1Hotkey)
+Category2HotkeyMap := ConvertModifiers(Category2Hotkey)
+Category3HotkeyMap := ConvertModifiers(Category3Hotkey)
+Category4HotkeyMap := ConvertModifiers(Category4Hotkey)
+Category5HotkeyMap := ConvertModifiers(Category5Hotkey)
+Category6HotkeyMap := ConvertModifiers(Category6Hotkey)
+Category7HotkeyMap := ConvertModifiers(Category7Hotkey)
+Category8HotkeyMap := ConvertModifiers(Category8Hotkey)
+Category9HotkeyMap := ConvertModifiers(Category9Hotkey)
+Category10HotkeyMap := ConvertModifiers(Category10Hotkey)
+OpenCategoriesMap := ConvertModifiers(OpenCategories)
+
+Move1HotkeyMap := ConvertModifiers(Move1Hotkey)
+Move2HotkeyMap := ConvertModifiers(Move2Hotkey)
+Move3HotkeyMap := ConvertModifiers(Move3Hotkey)
+Move4HotkeyMap := ConvertModifiers(Move4Hotkey)
+Move5HotkeyMap := ConvertModifiers(Move5Hotkey)
+Move6HotkeyMap := ConvertModifiers(Move6Hotkey)
+Move7HotkeyMap := ConvertModifiers(Move7Hotkey)
+Move8HotkeyMap := ConvertModifiers(Move8Hotkey)
+Move9HotkeyMap := ConvertModifiers(Move9Hotkey)
+
+Filter1HotkeyMap := ConvertModifiers(Filter1Hotkey)
+Filter2HotkeyMap := ConvertModifiers(Filter2Hotkey)
+Filter3HotkeyMap := ConvertModifiers(Filter3Hotkey)
+Filter4HotkeyMap := ConvertModifiers(Filter4Hotkey)
+Filter5HotkeyMap := ConvertModifiers(Filter5Hotkey)
+Filter6HotkeyMap := ConvertModifiers(Filter6Hotkey)
+
+JumpTo1HotkeyMap := ConvertModifiers(JumpTo1Hotkey)
+JumpTo2HotkeyMap := ConvertModifiers(JumpTo2Hotkey)
+JumpTo3HotkeyMap := ConvertModifiers(JumpTo3Hotkey)
+JumpTo4HotkeyMap := ConvertModifiers(JumpTo4Hotkey)
+JumpTo5HotkeyMap := ConvertModifiers(JumpTo5Hotkey)
+JumpTo6HotkeyMap := ConvertModifiers(JumpTo6Hotkey)
+JumpTo7HotkeyMap := ConvertModifiers(JumpTo7Hotkey)
+JumpTo8HotkeyMap := ConvertModifiers(JumpTo8Hotkey)
+JumpTo9HotkeyMap := ConvertModifiers(JumpTo9Hotkey)
+JumpTo0HotkeyMap := ConvertModifiers(JumpTo0Hotkey)
+
+SetReminderMap := ConvertModifiers(SetReminder)
+CreateTaskMap := ConvertModifiers(CreateTask)
+NewAppointmentMap := ConvertModifiers(NewAppointment)
+
 CheatSheet1 =
 (
-==Category Assignment Hotkeys==
-%Category1Hotkey%`t%Category1Name%`t(Maps to: CTRL+F3)
-%Category2Hotkey%`t%Category2Name%`t(Maps to: CTRL+F4)
-%Category3Hotkey%`t%Category3Name%`t(Maps to: CTRL+F5)
-%Category4Hotkey%`t%Category4Name%`t(Maps to: CTRL+F6)
-%Category5Hotkey%`t%Category5Name%`t(Maps to: CTRL+F7)
-%Category6Hotkey%`t%Category6Name%`t(Maps to: CTRL+F8)
-%Category7Hotkey%`t%Category7Name%`t(Maps to: CTRL+F9)
-%Category8Hotkey%`t%Category8Name%`t(Maps to: CTRL+F10)
-%Category9Hotkey%`t%Category9Name%`t(Maps to: CTRL+F11)
-%Category10Hotkey%`t%Category10Name%`t(Maps to: CTRL+F12)
-%OpenCategories%`tOpen Categories Menu
+Category Assignment Hotkeys
+%Category1HotkeyMap%`t%Category1Name%`t(Maps to: CTRL+F3)
+%Category2HotkeyMap%`t%Category2Name%`t(Maps to: CTRL+F4)
+%Category3HotkeyMap%`t%Category3Name%`t(Maps to: CTRL+F5)
+%Category4HotkeyMap%`t%Category4Name%`t(Maps to: CTRL+F6)
+%Category5HotkeyMap%`t%Category5Name%`t(Maps to: CTRL+F7)
+%Category6HotkeyMap%`t%Category6Name%`t(Maps to: CTRL+F8)
+%Category7HotkeyMap%`t%Category7Name%`t(Maps to: CTRL+F9)
+%Category8HotkeyMap%`t%Category8Name%`t(Maps to: CTRL+F10)
+%Category9HotkeyMap%`t%Category9Name%`t(Maps to: CTRL+F11)
+%Category10HotkeyMap%`t%Category10Name%`t(Maps to: CTRL+F12)
+%OpenCategoriesMap%`tOpen Categories Menu
+_______________________________________
 
-==Move Selected Emails to a Folder Hotkeys==
-%Move1Hotkey%`tMove message(s) to %Move1Folder%
-%Move2Hotkey%`tMove message(s) to %Move2Folder%
-%Move3Hotkey%`tMove message(s) to %Move3Folder%
-%Move4Hotkey%`tMove message(s) to %Move4Folder%
-%Move5Hotkey%`tMove message(s) to %Move5Folder%
-%Move6Hotkey%`tMove message(s) to %Move6Folder%
-%Move7Hotkey%`tMove message(s) to %Move7Folder%
-%Move8Hotkey%`tMove message(s) to %Move8Folder%
-%Move9Hotkey%`tMove message(s) to %Move9Folder%
+Move Selected Emails to a Folder Hotkeys
+%Move1HotkeyMap%`tMove message(s) to %Move1Folder%
+%Move2HotkeyMap%`tMove message(s) to %Move2Folder%
+%Move3HotkeyMap%`tMove message(s) to %Move3Folder%
+%Move4HotkeyMap%`tMove message(s) to %Move4Folder%
+%Move5HotkeyMap%`tMove message(s) to %Move5Folder%
+%Move6HotkeyMap%`tMove message(s) to %Move6Folder%
+%Move7HotkeyMap%`tMove message(s) to %Move7Folder%
+%Move8HotkeyMap%`tMove message(s) to %Move8Folder%
+%Move9HotkeyMap%`tMove message(s) to %Move9Folder%
+_______________________________________
 
-==Bulk-Move Emails to Folders Hotkeys==
-%Filter1Hotkey%`t%Filter1Name%
-%Filter2Hotkey%`t%Filter2Name%
-%Filter3Hotkey%`t%Filter3Name%
-%Filter4Hotkey%`t%Filter4Name%
-%Filter5Hotkey%`t%Filter5Name%
-%Filter6Hotkey%`t%Filter6Name%
+Bulk-Move Emails to Folders Hotkeys
+%Filter1HotkeyMap%`t%Filter1Name%
+%Filter2HotkeyMap%`t%Filter2Name%
+%Filter3HotkeyMap%`t%Filter3Name%
+%Filter4HotkeyMap%`t%Filter4Name%
+%Filter5HotkeyMap%`t%Filter5Name%
+%Filter6HotkeyMap%`t%Filter6Name%
 )
 
 CheatSheet2 =
 (
-==Jump to Folder Hotkeys==
-%JumpTo1Hotkey%`tSwitch to %JumpTo1Folder%
-%JumpTo2Hotkey%`tSwitch to %JumpTo2Folder%
-%JumpTo3Hotkey%`tSwitch to %JumpTo3Folder%
-%JumpTo4Hotkey%`tSwitch to %JumpTo4Folder%
-%JumpTo5Hotkey%`tSwitch to %JumpTo5Folder%
-%JumpTo6Hotkey%`tSwitch to %JumpTo6Folder%
-%JumpTo7Hotkey%`tSwitch to %JumpTo7Folder%
-%JumpTo8Hotkey%`tSwitch to %JumpTo8Folder%
-%JumpTo9Hotkey%`tSwitch to %JumpTo9Folder%
-%JumpTo0Hotkey%`tSwitch to %JumpTo0Folder%
+Jump to Folder Hotkeys
+%JumpTo1HotkeyMap%`tSwitch to %JumpTo1Folder%
+%JumpTo2HotkeyMap%`tSwitch to %JumpTo2Folder%
+%JumpTo3HotkeyMap%`tSwitch to %JumpTo3Folder%
+%JumpTo4HotkeyMap%`tSwitch to %JumpTo4Folder%
+%JumpTo5HotkeyMap%`tSwitch to %JumpTo5Folder%
+%JumpTo6HotkeyMap%`tSwitch to %JumpTo6Folder%
+%JumpTo7HotkeyMap%`tSwitch to %JumpTo7Folder%
+%JumpTo8HotkeyMap%`tSwitch to %JumpTo8Folder%
+%JumpTo9HotkeyMap%`tSwitch to %JumpTo9Folder%
+%JumpTo0HotkeyMap%`tSwitch to %JumpTo0Folder%
+_______________________________________
 
-==Other Helpful Shortcut Hotkeys==
-%SetReminder%`tSet a Reminder
-%CreateTask%`tCreate a Task
-%NewAppointment%`tCreate a new Appointment
+Other Helpful Shortcut Hotkeys
+%SetReminderMap%`tSet a Reminder
+%CreateTaskMap%`tCreate a Task
+%NewAppointmentMap%`tCreate a new Appointment
+_______________________________________
 
-`n==HotKey Legend:==`n^ Control`n! Alt`n+ Shift`n# Windows key`n
+HotKey Legend`n^ Control`n! Alt`n+ Shift`n# Windows key`n
 To change these hotkeys, edit the %ININame% file.
 )
 ; example of how to replace modifiers with human readable versions
 ;  x := RegExReplace(x, "(?i)^(.+\.ahk) - Notepad$","$1")
+
 
 HelpProgramText =
 (

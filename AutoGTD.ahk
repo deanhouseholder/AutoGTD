@@ -16,17 +16,17 @@
 ;*******************************************************************************
 ; AutoGTD - Outlook Hotkeys
 ; Copyright (C) 2010  Dean Householder
-; 
+;
 ; This program is free software: you can redistribute it and/or modify
 ; it under the terms of the GNU General Public License as published by
 ; the Free Software Foundation, either version 3 of the License, or
 ; (at your option) any later version.
-; 
+;
 ; This program is distributed in the hope that it will be useful,
 ; but WITHOUT ANY WARRANTY;  without even the implied warranty of
 ; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ; GNU General Public License for more details.
-; 
+;
 ; You should have received a copy of the GNU General Public License
 ; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ;
@@ -48,20 +48,21 @@ AppFileName   = AutoGTD
 ININame       = AutoGTD.ini
 AuthorName    = Dean Householder
 AuthorEmail   = deanhouseholder@gmail.com
-AuthorWebsite = http://www.deanhouseholder.com/AutoGTD
-JumpToRun := 0
-ShortcutFile := A_Startup . "\" . AppName . ".lnk"
-
+AuthorWebsite = http://www.autogtd.com/
+AuthorWebsiteHelp = http://www.autogtd.com/AutoGTD/help
+ShortcutFile  = %A_Startup%\%AppName%.lnk
+JumpToRun    := 0
 
 ;*******************************************************************************
 ;				Load Includes
 ;*******************************************************************************
 #Include includes\top.ahk
-#Include includes\iniread.ahk
-#Include includes\strings.ahk
 #Include includes\commonfunctions.ahk
+#Include includes\iniread.ahk
+#Include includes\runchecks.ahk
+#Include includes\strings.ahk
 #Include includes\mappedhotkeys.ahk
-#Include includes\labels.ahk
+#Include includes\traylabels.ahk
 #Include includes\macrofunctions.ahk
 #Include includes\macrolabels.ahk
 

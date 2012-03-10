@@ -1,3 +1,6 @@
+IniRead, INIOutlookVersion,%ININame%, %AppName%, OutlookVersion
+IniRead, VersionAskAgain,  %ININame%, %AppName%, VersionAskAgain
+
 IniRead, Category1Hotkey,  %ININame%, %AppName%, Category1Hotkey
 IniRead, Category1Name,    %ININame%, %AppName%, Category1Name
 IniRead, Category2Hotkey,  %ININame%, %AppName%, Category2Hotkey

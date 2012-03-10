@@ -108,43 +108,43 @@ CustomFilter6:
 Return
 
 JumpToFolder1:
-	JumpToFolder(JumpTo1Folder, A_ThisHotkey)
+	JumpToFolder2(JumpTo1Folder, A_ThisHotkey)
 Return
 
 JumpToFolder2:
-	JumpToFolder(JumpTo2Folder, A_ThisHotkey)
+	JumpToFolder2(JumpTo2Folder, A_ThisHotkey)
 Return
 
 JumpToFolder3:
-	JumpToFolder(JumpTo3Folder, A_ThisHotkey)
+	JumpToFolder2(JumpTo3Folder, A_ThisHotkey)
 Return
 
 JumpToFolder4:
-	JumpToFolder(JumpTo4Folder, A_ThisHotkey)
+	JumpToFolder2(JumpTo4Folder, A_ThisHotkey)
 Return
 
 JumpToFolder5:
-	JumpToFolder(JumpTo5Folder, A_ThisHotkey)
+	JumpToFolder2(JumpTo5Folder, A_ThisHotkey)
 Return
 
 JumpToFolder6:
-	JumpToFolder(JumpTo6Folder, A_ThisHotkey)
+	JumpToFolder2(JumpTo6Folder, A_ThisHotkey)
 Return
 
 JumpToFolder7:
-	JumpToFolder(JumpTo7Folder, A_ThisHotkey)
+	JumpToFolder2(JumpTo7Folder, A_ThisHotkey)
 Return
 
 JumpToFolder8:
-	JumpToFolder(JumpTo8Folder, A_ThisHotkey)
+	JumpToFolder2(JumpTo8Folder, A_ThisHotkey)
 Return
 
 JumpToFolder9:
-	JumpToFolder(JumpTo9Folder, A_ThisHotkey)
+	JumpToFolder2(JumpTo9Folder, A_ThisHotkey)
 Return
 
 JumpToFolder0:
-	JumpToFolder(JumpTo0Folder, A_ThisHotkey)
+	JumpToFolder2(JumpTo0Folder, A_ThisHotkey)
 Return
 
 SetReminder:
