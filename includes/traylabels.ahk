@@ -179,7 +179,7 @@ ToggleStartup:
 	If( FileExist( ShortcutFile ) )
 		FileDelete %ShortcutFile%
 	Else
-		FileCreateShortcut %A_ScriptFullPath%, %ShortcutFile%, %A_WorkingDir%,, AutoGTD - Outlook Hotkeys, %A_WorkingDir%\%AppName%.exe
+		FileCreateShortcut %A_ScriptFullPath%, %ShortcutFile%, %A_WorkingDir%,, AutoGTD - Outlook Hotkeys, %A_Temp%/AutoGTD.ico
 
 	Gosub CheckStartupState
 Return

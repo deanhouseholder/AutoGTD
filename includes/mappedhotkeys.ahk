@@ -4,10 +4,10 @@
 
 ; Press CTRL+Shift+` to reload the program
 ^+`::
-	SplashImage, %temp%\%AppName%400x64.gif, b1 cwffffff ct000000 fm16 wm550 fs12 ws550, Program Settings Reloaded`n, %AppName%, , Arial
+	SplashImage, %A_temp%\%AppName%400x64.gif, b1 cwffffff ct000000 fm16 wm550 fs12 ws550, Program Settings Reloaded`n, %AppName%, , Arial
 	Sleep, 500
 	SplashImage, Off
-	Reload
+	;Reload
 Return
 
 ; Reload the script automatically whenever CTRL+s is pressed in editor

@@ -43,35 +43,44 @@ ConvertModifiers(x){
 	Return y
 }
 
-CheckOutlookVersion() {
-	Loop, %ProgramFiles%\Microsoft Office\*.exe, 0, 1 ; Loop through all of the Microsoft Office location Skipping folders looking for exe files only
+CheckOutlookVersionRegistry() {
+	RegRead,OutlookVer8,HKEY_LOCAL_MACHINE,SOFTWARE\Microsoft\Office\8.0\Outlook\InstallRoot,path ; 1997
+	RegRead,OutlookVer9,HKEY_LOCAL_MACHINE,SOFTWARE\Microsoft\Office\9.0\Outlook\InstallRoot,path ; 2000
+	RegRead,OutlookVer10,HKEY_LOCAL_MACHINE,SOFTWARE\Microsoft\Office\10.0\Outlook\InstallRoot,path ; 2002
+	RegRead,OutlookVer11,HKEY_LOCAL_MACHINE,SOFTWARE\Microsoft\Office\11.0\Outlook\InstallRoot,path ; 2003
+	RegRead,OutlookVer12,HKEY_LOCAL_MACHINE,SOFTWARE\Microsoft\Office\12.0\Outlook\InstallRoot,path ; 2007
+	RegRead,OutlookVer14,HKEY_LOCAL_MACHINE,SOFTWARE\Microsoft\Office\14.0\Outlook\InstallRoot,path ; 2010
+
+	IfExist,%OutlookVer8%
 	{
-		IfEqual, A_LoopFilename, outlook.exe
-		{
-			outlookloc=%A_LoopFileLongPath%
-
-			FileGetVersion, outlookver, %outlookloc% ; Get the file version number of Outlook.exe
-			StringSplit, mainver, outlookver, . ; Turn the version number into a set of arrays as we are only interested in the first part of this number
-			OutlookVersion := mainver1
-			;MsgBox, %OutlookVersion%
-
-			If mainver1 = 8
-				OutlookYear := 1997
-			If mainver1 = 9
-				OutlookYear := 2000
-			If mainver1 = 10
-				OutlookYear := 2002
-			If mainver1 = 11
-				OutlookYear := 2003
-			If mainver1 = 12
-				OutlookYear := 2007
-			If mainver1 = 14
-				OutlookYear := 2010
-			If OutlookYear =
-				OutlookYear := 2007
-		}
+		OutlookVersion := 8
+		OutlookYear := 1997
 	}
-	;MsgBox, OutlookVersion: %OutlookVersion%`nMainVersion: %outlookver%`nOutlookYear: %OutlookYear%
+	IfExist,%OutlookVer9%
+	{
+		OutlookVersion := 9
+		OutlookYear := 2000
+	}
+	IfExist,%OutlookVer10%
+	{
+		OutlookVersion := 10
+		OutlookYear := 2002
+	}
+	IfExist,%OutlookVer11%
+	{
+		OutlookVersion := 11
+		OutlookYear := 2003
+	}
+	IfExist,%OutlookVer12%
+	{
+		OutlookVersion := 12
+		OutlookYear := 2007
+	}
+	IfExist,%OutlookVer14%
+	{
+		OutlookVersion := 14
+		OutlookYear := 2010
+	}
+
 	Return %OutlookYear%
 }
-

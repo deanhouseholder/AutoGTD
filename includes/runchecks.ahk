@@ -17,10 +17,11 @@ IfNotExist, %A_ScriptDir%\%ININame%
 ;*******************************************************************************
 if (VersionAskAgain != "N") ; If previously set to "N" then don't check for updated Outlook versions
 {
-	LatestOutlookVersion := CheckOutlookVersion()
+	LatestOutlookVersion := CheckOutlookVersionRegistry()
+	IniRead, INIOutlookVersion,%ININame%, %AppName%, OutlookVersion ; This shouldn't be necessary
 	If (LatestOutlookVersion != INIOutlookVersion)
 	{
-		MsgBox, 4, Outlook Version Check, %AppName% has detected that Outlook %LatestOutlookVersion% installed but the %ININame% file is set to use the Outlook %INIOutlookVersion% hotkey shortcuts.`n`nWould you like to use Outlook %LatestOutlookVersion% hotkey shortcuts?
+		MsgBox, 4, Outlook Version Check, %AppName% has detected that Outlook %LatestOutlookVersion% is installed but the %ININame% file is set to use Outlook %INIOutlookVersion% hotkey shortcuts.`n`nWould you like to use Outlook %LatestOutlookVersion% hotkey shortcuts?
 		IfMsgBox, Yes
 		{
 			IniWrite, %LatestOutlookVersion%, %ININame%, %AppName%, OutlookVersion ; Write detected version to ini file

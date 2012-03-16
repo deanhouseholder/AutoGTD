@@ -98,10 +98,6 @@ Other Helpful Shortcut Hotkeys
 %SetReminderMap%`tSet a Reminder
 %CreateTaskMap%`tCreate a Task
 %NewAppointmentMap%`tCreate a new Appointment
-_______________________________________
-
-HotKey Legend`n^ Control`n! Alt`n+ Shift`n# Windows key`n
-To change these hotkeys, edit the %ININame% file.
 )
 ; example of how to replace modifiers with human readable versions
 ;  x := RegExReplace(x, "(?i)^(.+\.ahk) - Notepad$","$1")

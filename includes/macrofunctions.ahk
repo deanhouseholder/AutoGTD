@@ -5,20 +5,23 @@
 CustomFilter(Name, Hotkey, Search, Folder, Read, NormalKey) {
 	if SafeToRunMacro()
 	{
-		Global AppName, INIOutlookVersion
+		Global AppName, INIOutlookVersion, CustomWaitTime
 		;TrayTip, Timed TrayTip, updated %AppName% Program
 		;ToolTip, `n`n`tCurrently Processing Macro: %Name%`t`t`n`n`t`tPress CTRL+Shift+` if the macro fails.`n`n `n, % A_ScreenWidth//2-232, A_ScreenHeight//2-55
 		SplashImage, %A_temp%\%AppName%400x64.gif, b1 cwffffff ct000000 fm16 wm550 fs10 ws550, Currently Processing Macro: %Name%`n`nPress CTRL+Shift+`` if the macro fails.`n, %AppName%, , Arial
 		Send, ^e%Search%{ENTER}
-		Sleep, 2500 ; Give time for the search to finish (might be too short)
-		if (INIOutlookVersion = "2007"){
-			ControlFocus, SUPERGRID1, Microsoft Outlook
-		} else if (INIOutlookVersion = "2010") {
-			ControlFocus, SUPERGRID2, Microsoft Outlook
-		}
-; if tasks are not visible when starting outlook, the message list is supergrid1
-; if tasks are visible when starting outlook, the message list is supergrid2 instead of supergrid1
-; if tasks are made visible after starting outlook, the message list stays supergrid1 and tasks becomes supergrid2
+		SleepTime := CustomWaitTime * 1000
+		Sleep, %SleepTime% ; Give time for the search to finish
+
+		;Removed because it wasn't necessary
+		;if (INIOutlookVersion = "2007"){
+		;	ControlFocus, SUPERGRID1, Microsoft Outlook
+		;} else if (INIOutlookVersion = "2010") {
+		;	ControlFocus, SUPERGRID2, Microsoft Outlook
+		;}
+		; if tasks are not visible when starting outlook, the message list is supergrid1
+		; if tasks are visible when starting outlook, the message list is supergrid2 instead of supergrid1
+		; if tasks are made visible after starting outlook, the message list stays supergrid1 and tasks becomes supergrid2
 		ControlFocus, SUPERGRID1, Microsoft Outlook
 		ControlFocus, SUPERGRID2, Microsoft Outlook
 
@@ -65,27 +68,6 @@ MoveSelected(Folder, NormalKey) {
 }
 
 JumpToFolder(Folder, NormalKey) {
-	if SafeToRunMacro()
-	{
-		Global JumpToRun, INIOutlookVersion
-		MsgBox %INIOutlookVersion%
-		if (INIOutlookVersion = "2007")
-		{
-			ControlFocus, NetUIHWND1, Microsoft Outlook
-		}
-		else if (INIOutlookVersion = "2010")
-		{
-			ControlFocus, NetUIHWND4, Microsoft Outlook
-		}
-		Send, {HOME}{NumpadMult}%Folder%{SPACE}
-		Sleep, 200
-		FocusOnInbox()
-	} else {
-		Send %NormalKey%
-	}
-}
-
-JumpToFolder2(Folder, NormalKey) {
 	if SafeToRunMacro()
 	{
 		Send, ^y

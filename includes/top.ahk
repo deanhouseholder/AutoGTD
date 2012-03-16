@@ -16,7 +16,7 @@ SetWorkingDir %A_ScriptDir%
 ;				Extract Files
 ;*******************************************************************************
 ;FileInstall, src\AutoGTD16.ico, %A_temp%\AutoGTD16.ico, 1
-FileInstall, src\mail_replied_multi_enhanced.ico, %A_temp%\mail_replied_multi_enhanced.ico, 1
+FileInstall, src\AutoGTD.ico, %A_temp%\AutoGTD.ico, 1
 FileInstall, src\AutoGTD128.png, %A_temp%\AutoGTD128.png, 1
 FileInstall, src\AutoGTD400x64.gif, %A_temp%\AutoGTD400x64.gif, 1
 FileInstall, src\AutoGTDLogo.png, %A_temp%\AutoGTDLogo.png, 1
@@ -27,7 +27,7 @@ FileInstall, src\AutoGTD Help.pdf, %A_ScriptDir%\AutoGTD Help.pdf, 1
 ;*******************************************************************************
 ;				Menu
 ;*******************************************************************************
-IfEqual, A_IsCompiled, , Menu, Tray, Icon, %A_temp%\mail_replied_multi_enhanced.ico
+IfEqual, A_IsCompiled, , Menu, Tray, Icon, %A_temp%\AutoGTD.ico
 Menu, Tray, NoStandard
 Menu, tray, add, Show Cheat Sheet, CheatSheetHelper
 Menu, Tray, Add
