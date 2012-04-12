@@ -10,6 +10,8 @@ SetKeyDelay, -1
 SetTitleMatchMode 2
 SendMode Input
 SetWorkingDir %A_ScriptDir%
+SplashImage, Off
+Progress, Off
 
 
 ;*******************************************************************************
