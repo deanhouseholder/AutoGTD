@@ -159,3 +159,6 @@ NewAppointment:
 	RunMacro("^+a", A_ThisHotkey)
 Return
 
+TaskFromEmail:
+	CreateTaskFromEmail()
+Return

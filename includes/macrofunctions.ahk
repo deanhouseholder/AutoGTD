@@ -108,3 +108,57 @@ FocusOnInbox() {
 	ControlFocus, SUPERGRID1, Microsoft Outlook
 	ControlFocus, SUPERGRID2, Microsoft Outlook
 }
+
+CreateTaskFromEmail() {
+	Static Task
+	ActionBoxXY := CenterBox(350, 75)
+	Gui, 1:Font, S10 CDefault, Calibri
+	Gui, 1:Add, Text, x10 y10 w350 h25, What's the Next Action? (start with a verb)
+
+	Gui, 1:Font, S14 CDefault, Calibri
+	Gui, 1:Add, Edit, vTask x10 y40 w330 h30,
+
+	Gui, 1:Font, S10 CDefault w800, Calibri
+	Gui, 1:Add, Text, , Suggestions:
+	Gui, 1:Font, S9 CDefault w400, Calibri
+	Gui, 1:Add, Text, , Call...  Email...  Agenda...  Write...  Research...  `nBrainstorm...  Talk-To...  Schedule...  Plan
+
+	Gui, 1:Font, S10 CDefault w800, Calibri
+	Gui, 1:Add, Text, , Avoid:
+	Gui, 1:Font, S9 CDefault w400, Calibri
+	Gui, 1:Add, Text, , Look into...  Decide...  Vague wording
+
+	Gui, 1:Add, Button, Hidden Default, OK
+	Gui, 1:Show, %ActionBoxXY% h225 w350, Creating task from Email
+	Return
+
+	GuiEscape:
+	GuiClose:
+	Gui, 1:Destroy
+	;Return
+
+	ButtonOK:
+	Gui, 1:Submit
+	Gui, 1:Destroy
+
+	Send, ^t
+	WinWaitFull("Discussion")
+	Send, %task%
+	Send, !hwa
+
+	Send, !hg2a
+	WinWaitFull("Color Categories")
+	WinGetPos, CatX, CatY, , , Color Categories
+	Gui 2:-Caption +ToolWindow +AlwaysOnTop +Border
+	Gui 2:Color, Yellow
+	Gui 2:Font, s12 c000000 Bold, Calibri
+	Gui 2:Add, Text, , Select a Context
+	Gui 2:Show, % "x" CatX+2 " y" CatY+2 h500 w200
+	WinWaitFull("Color Categories")
+	WinWaitActive, Discussion
+
+	Send, !s
+	Gui 2:Destroy
+	WinWaitFull("Outlook")
+	Return
+}

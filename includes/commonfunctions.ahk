@@ -43,6 +43,7 @@ ConvertModifiers(x){
 	Return y
 }
 
+; Check the Outlook Version via the Registry
 CheckOutlookVersionRegistry() {
 	RegRead,OutlookVer8,HKEY_LOCAL_MACHINE,SOFTWARE\Microsoft\Office\8.0\Outlook\InstallRoot,path ; 1997
 	RegRead,OutlookVer9,HKEY_LOCAL_MACHINE,SOFTWARE\Microsoft\Office\9.0\Outlook\InstallRoot,path ; 2000
@@ -83,4 +84,12 @@ CheckOutlookVersionRegistry() {
 	}
 
 	Return %OutlookYear%
+}
+
+; Pass in the X and Y size of the box you want to show.
+; Function will return a string in the format of: x50 y100
+CenterBox(BoxX, BoxY) {
+	CenterX := A_ScreenWidth//2-(BoxX//2)
+	CenterY := A_ScreenHeight//2-(BoxY//2)
+	Return "x" CenterX " y" CenterY
 }
