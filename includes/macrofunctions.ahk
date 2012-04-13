@@ -160,5 +160,6 @@ CreateTaskFromEmail() {
 	Send, !s
 	Gui 2:Destroy
 	WinWaitFull("Outlook")
+	FocusOnInbox()
 	Return
 }

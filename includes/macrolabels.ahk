@@ -148,7 +148,10 @@ JumpToFolder0:
 Return
 
 SetReminder:
-	RunMacro("!aur", A_ThisHotkey)
+	If (LatestOutlookVersion < 2010)
+		RunMacro("!aur", A_ThisHotkey)
+	Else
+		RunMacro("!hur", A_ThisHotkey)
 Return
 
 CreateTask:
