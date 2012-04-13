@@ -41,7 +41,7 @@
 ;*******************************************************************************
 ;				Variables
 ;*******************************************************************************
-AppVersion    = 0.6
+AppVersion    = 0.7
 AppName       = AutoGTD
 AppNameFull   = AutoGTD - Outlook Hotkeys
 AppFileName   = AutoGTD

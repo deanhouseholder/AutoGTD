@@ -165,3 +165,7 @@ Return
 TaskFromEmail:
 	CreateTaskFromEmail()
 Return
+
+NewTaskInEmail:
+	RunMacro("^+s", A_ThisHotkey)
+Return
