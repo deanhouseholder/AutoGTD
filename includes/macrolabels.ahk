@@ -174,3 +174,7 @@ Return
 FocusOnSearch:
 	RunMacro("^e", A_ThisHotkey)
 Return
+
+SearchAll:
+	RunMacro("^!a", A_ThisHotkey)
+Return

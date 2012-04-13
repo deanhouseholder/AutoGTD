@@ -45,6 +45,7 @@ TaskFromEmailMap  := ConvertModifiers(TaskFromEmail)
 NewTaskInEmailMap := ConvertModifiers(NewTaskInEmail)
 ShowUnreadMap     := ConvertModifiers(ShowUnread)
 FocusOnSearchMap  := ConvertModifiers(FocusOnSearch)
+SearchAllMap      := ConvertModifiers(SearchAll)
 
 CheatSheet1 =
 (
@@ -106,6 +107,7 @@ Other Helpful Shortcut Hotkeys
 %NewTaskInEmailMap%`tCreate a new Task in email folder
 %ShowUnreadMap%`tFilter for unread emails
 %FocusOnSearchMap%`tFocus on search bar
+%SearchAllMap%`tSearch for email in all folders
 )
 ; example of how to replace modifiers with human readable versions
 ;  x := RegExReplace(x, "(?i)^(.+\.ahk) - Notepad$","$1")
