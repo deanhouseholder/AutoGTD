@@ -38,12 +38,13 @@ JumpTo8HotkeyMap := ConvertModifiers(JumpTo8Hotkey)
 JumpTo9HotkeyMap := ConvertModifiers(JumpTo9Hotkey)
 JumpTo0HotkeyMap := ConvertModifiers(JumpTo0Hotkey)
 
-SetReminderMap := ConvertModifiers(SetReminder)
-CreateTaskMap := ConvertModifiers(CreateTask)
+SetReminderMap    := ConvertModifiers(SetReminder)
+CreateTaskMap     := ConvertModifiers(CreateTask)
 NewAppointmentMap := ConvertModifiers(NewAppointment)
-TaskFromEmailMap := ConvertModifiers(TaskFromEmail)
+TaskFromEmailMap  := ConvertModifiers(TaskFromEmail)
 NewTaskInEmailMap := ConvertModifiers(NewTaskInEmail)
-ShowUnreadMap := ConvertModifiers(ShowUnread)
+ShowUnreadMap     := ConvertModifiers(ShowUnread)
+FocusOnSearchMap  := ConvertModifiers(FocusOnSearch)
 
 CheatSheet1 =
 (
@@ -104,6 +105,7 @@ Other Helpful Shortcut Hotkeys
 %TaskFromEmailMap%`tCreate a new Task from an email
 %NewTaskInEmailMap%`tCreate a new Task in email folder
 %ShowUnreadMap%`tFilter for unread emails
+%FocusOnSearchMap%`tFocus on search bar
 )
 ; example of how to replace modifiers with human readable versions
 ;  x := RegExReplace(x, "(?i)^(.+\.ahk) - Notepad$","$1")

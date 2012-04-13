@@ -97,6 +97,7 @@ IniRead, Filter6Read,       %ININame%, %AppName%, Filter6Read
 IniRead, TaskFromEmail,     %ININame%, %AppName%, TaskFromEmail
 IniRead, NewTaskInEmail,    %ININame%, %AppName%, NewTaskInEmail
 IniRead, ShowUnread,        %ININame%, %AppName%, ShowUnread
+IniRead, FocusOnSearch,     %ININame%, %AppName%, FocusOnSearch
 
 Hotkey, IfWinActive, - Microsoft Outlook ahk_class rctrl_renwnd32, NUIDocumentWindow
 Hotkey, %Category1Hotkey%,  Category1,      UseErrorLevel
@@ -141,4 +142,5 @@ Hotkey, %Filter6Hotkey%,    CustomFilter6,  UseErrorLevel
 Hotkey, %TaskFromEmail%,    TaskFromEmail,  UseErrorLevel
 Hotkey, %NewTaskInEmail%,   NewTaskInEmail, UseErrorLevel
 Hotkey, %ShowUnread%,       ShowUnread,     UseErrorLevel
+Hotkey, %FocusOnSearch%,    FocusOnSearch,  UseErrorLevel
 Hotkey, IfWinActive
