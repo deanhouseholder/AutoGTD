@@ -97,6 +97,7 @@ IniRead, Filter6Read,       %ININame%, %AppName%, Filter6Read
 IniRead, TaskFromEmail,     %ININame%, %AppName%, TaskFromEmail
 IniRead, NewTaskInEmail,    %ININame%, %AppName%, NewTaskInEmail
 IniRead, ShowUnread,        %ININame%, %AppName%, ShowUnread
+IniRead, ShowAllUnread,     %ININame%, %AppName%, ShowAllUnread
 IniRead, FocusOnSearch,     %ININame%, %AppName%, FocusOnSearch
 IniRead, SearchAll,         %ININame%, %AppName%, SearchAll
 
@@ -143,6 +144,7 @@ Hotkey, %Filter6Hotkey%,    CustomFilter6,  UseErrorLevel
 Hotkey, %TaskFromEmail%,    TaskFromEmail,  UseErrorLevel
 Hotkey, %NewTaskInEmail%,   NewTaskInEmail, UseErrorLevel
 Hotkey, %ShowUnread%,       ShowUnread,     UseErrorLevel
+Hotkey, %ShowAllUnread%,    ShowAllUnread,  UseErrorLevel
 Hotkey, %FocusOnSearch%,    FocusOnSearch,  UseErrorLevel
 Hotkey, %SearchAll%,        SearchAll,      UseErrorLevel
 Hotkey, IfWinActive

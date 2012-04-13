@@ -44,6 +44,7 @@ NewAppointmentMap := ConvertModifiers(NewAppointment)
 TaskFromEmailMap  := ConvertModifiers(TaskFromEmail)
 NewTaskInEmailMap := ConvertModifiers(NewTaskInEmail)
 ShowUnreadMap     := ConvertModifiers(ShowUnread)
+ShowAllUnreadMap  := ConvertModifiers(ShowAllUnread)
 FocusOnSearchMap  := ConvertModifiers(FocusOnSearch)
 SearchAllMap      := ConvertModifiers(SearchAll)
 
@@ -106,6 +107,7 @@ Other Helpful Shortcut Hotkeys
 %TaskFromEmailMap%`tCreate a new Task from an email
 %NewTaskInEmailMap%`tCreate a new Task in email folder
 %ShowUnreadMap%`tFilter for unread emails
+%ShowAllUnreadMap%`tShow unread emails in all folders
 %FocusOnSearchMap%`tFocus on search bar
 %SearchAllMap%`tSearch for email in all folders
 )

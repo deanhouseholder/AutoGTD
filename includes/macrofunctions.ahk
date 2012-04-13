@@ -91,6 +91,18 @@ ShortFilter(Search, NormalKey) {
 	}
 }
 
+ShortFilterAll(Search, NormalKey) {
+	if SafeToRunMacro()
+	{
+		Send, ^!a%Search%{ENTER}
+		Sleep, 750
+		ControlFocus, SUPERGRID1, Microsoft Outlook
+		ControlFocus, SUPERGRID2, Microsoft Outlook
+	} else {
+		Send %NormalKey%
+	}
+}
+
 MoveSelected(Folder, NormalKey) {
 	if SafeToRunMacro()
 	{

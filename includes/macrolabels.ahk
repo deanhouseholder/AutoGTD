@@ -171,6 +171,10 @@ ShowUnread:
 	ShortFilter("read:no", A_ThisHotkey)
 Return
 
+ShowAllUnread:
+	ShortFilterAll("read:no", A_ThisHotkey)
+Return
+
 FocusOnSearch:
 	RunMacro("^e", A_ThisHotkey)
 Return
