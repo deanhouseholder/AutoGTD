@@ -148,10 +148,7 @@ JumpToFolder0:
 Return
 
 SetReminder:
-	If (LatestOutlookVersion < 2010)
-		RunMacro("!aur", A_ThisHotkey)
-	Else
-		RunMacro("!hur", A_ThisHotkey)
+	RunMacro("^+g", A_ThisHotkey)
 Return
 
 CreateTask:
@@ -168,4 +165,8 @@ Return
 
 NewTaskInEmail:
 	RunMacro("^+s", A_ThisHotkey)
+Return
+
+ShowUnread:
+	ShortFilter("read:no", A_ThisHotkey)
 Return
