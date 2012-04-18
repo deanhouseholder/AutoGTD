@@ -44,7 +44,11 @@ Category10:
 Return
 
 OpenCategories:
-	RunMacro("!aia", A_ThisHotkey)
+	if (LatestOutlookVersion <= 2007) {
+		RunMacro("!aia", A_ThisHotkey)
+	} else {
+		RunMacro("!hga", A_ThisHotkey)
+	}
 Return
 
 Move1ToFolder:
