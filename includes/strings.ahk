@@ -171,6 +171,7 @@ CheatSheet2b1 =
 %FocusOnSearchMap%
 %SearchAllMap%
 %OpenContextMenu%
+%OpenAddressBook%
 )
 
 
@@ -200,7 +201,8 @@ Filter for unread emails
 Show unread emails in all folders
 Focus on search bar
 Search for email in all folders
-Open Context Menu
+Open the Context Menu
+Open the Address Book
 )
 
 

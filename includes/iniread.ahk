@@ -102,6 +102,7 @@ IniRead, ShowAllUnread,     %ININame%, %AppName%, ShowAllUnread
 IniRead, FocusOnSearch,     %ININame%, %AppName%, FocusOnSearch
 IniRead, SearchAll,         %ININame%, %AppName%, SearchAll
 IniRead, OpenContextMenu,   %ININame%, %AppName%, OpenContextMenu
+IniRead, OpenAddressBook,   %ININame%, %AppName%, OpenAddressBook
 IniRead, Remind30mins,      %ININame%, %AppName%, Remind30mins
 IniRead, Remind1hour,       %ININame%, %AppName%, Remind1hour
 IniRead, Remind2hours,      %ININame%, %AppName%, Remind2hours
@@ -168,6 +169,7 @@ Hotkey, %ShowAllUnread%,    ShowAllUnread,  UseErrorLevel
 Hotkey, %FocusOnSearch%,    FocusOnSearch,  UseErrorLevel
 Hotkey, %SearchAll%,        SearchAll,      UseErrorLevel
 Hotkey, %OpenContextMenu%,  OpenContextMenu,UseErrorLevel
+Hotkey, %OpenAddressBook%,  OpenAddressBook,UseErrorLevel
 Hotkey, %Remind30mins%,     Remind30mins,   UseErrorLevel
 Hotkey, %Remind1hour%,      Remind1hour,    UseErrorLevel
 Hotkey, %Remind2hours%,     Remind2hours,   UseErrorLevel

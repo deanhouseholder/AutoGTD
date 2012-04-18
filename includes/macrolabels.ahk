@@ -195,6 +195,10 @@ OpenContextMenu:
 	RunMacro("+{F10}", A_ThisHotkey)
 Return
 
+OpenAddressBook:
+	RunMacro("^+b", A_ThisHotkey)
+Return
+
 Remind30Mins:
 	RemindHour(.5, A_ThisHotkey)
 Return
