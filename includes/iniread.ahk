@@ -100,6 +100,23 @@ IniRead, ShowUnread,        %ININame%, %AppName%, ShowUnread
 IniRead, ShowAllUnread,     %ININame%, %AppName%, ShowAllUnread
 IniRead, FocusOnSearch,     %ININame%, %AppName%, FocusOnSearch
 IniRead, SearchAll,         %ININame%, %AppName%, SearchAll
+IniRead, Remind30mins,      %ININame%, %AppName%, Remind30mins
+IniRead, Remind1hour,       %ININame%, %AppName%, Remind1hour
+IniRead, Remind2hours,      %ININame%, %AppName%, Remind2hours
+IniRead, Remind3hours,      %ININame%, %AppName%, Remind3hours
+IniRead, Remind4hours,      %ININame%, %AppName%, Remind4hours
+IniRead, Remind5hours,      %ININame%, %AppName%, Remind5hours
+IniRead, Remind6hours,      %ININame%, %AppName%, Remind6hours
+IniRead, Remind7hours,      %ININame%, %AppName%, Remind7hours
+IniRead, Remind8hours,      %ININame%, %AppName%, Remind8hours
+IniRead, Remind9hours,      %ININame%, %AppName%, Remind9hours
+IniRead, Remind1day,        %ININame%, %AppName%, Remind1day
+IniRead, Remind2days,       %ININame%, %AppName%, Remind2days
+IniRead, Remind3days,       %ININame%, %AppName%, Remind3days
+IniRead, Remind4days,       %ININame%, %AppName%, Remind4days
+IniRead, Remind5days,       %ININame%, %AppName%, Remind5days
+IniRead, Remind6days,       %ININame%, %AppName%, Remind6days
+IniRead, Remind7days,       %ININame%, %AppName%, Remind7days
 
 Hotkey, IfWinActive, - Microsoft Outlook ahk_class rctrl_renwnd32, NUIDocumentWindow
 Hotkey, %Category1Hotkey%,  Category1,      UseErrorLevel
@@ -147,4 +164,21 @@ Hotkey, %ShowUnread%,       ShowUnread,     UseErrorLevel
 Hotkey, %ShowAllUnread%,    ShowAllUnread,  UseErrorLevel
 Hotkey, %FocusOnSearch%,    FocusOnSearch,  UseErrorLevel
 Hotkey, %SearchAll%,        SearchAll,      UseErrorLevel
+Hotkey, %Remind30mins%,     Remind30mins,   UseErrorLevel
+Hotkey, %Remind1hour%,      Remind1hour,    UseErrorLevel
+Hotkey, %Remind2hours%,     Remind2hours,   UseErrorLevel
+Hotkey, %Remind3hours%,     Remind3hours,   UseErrorLevel
+Hotkey, %Remind4hours%,     Remind4hours,   UseErrorLevel
+Hotkey, %Remind5hours%,     Remind5hours,   UseErrorLevel
+Hotkey, %Remind6hours%,     Remind6hours,   UseErrorLevel
+Hotkey, %Remind7hours%,     Remind7hours,   UseErrorLevel
+Hotkey, %Remind8hours%,     Remind8hours,   UseErrorLevel
+Hotkey, %Remind9hours%,     Remind9hours,   UseErrorLevel
+Hotkey, %Remind1day%,       Remind1day,     UseErrorLevel
+Hotkey, %Remind2days%,      Remind2days,    UseErrorLevel
+Hotkey, %Remind3days%,      Remind3days,    UseErrorLevel
+Hotkey, %Remind4days%,      Remind4days,    UseErrorLevel
+Hotkey, %Remind5days%,      Remind5days,    UseErrorLevel
+Hotkey, %Remind6days%,      Remind6days,    UseErrorLevel
+Hotkey, %Remind7days%,      Remind7days,    UseErrorLevel
 Hotkey, IfWinActive

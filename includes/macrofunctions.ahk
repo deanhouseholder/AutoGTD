@@ -3,8 +3,7 @@
 ;*******************************************************************************
 
 CustomFilter(Name, Hotkey, Search, Folder, Read, NormalKey) {
-	if SafeToRunMacro()
-	{
+	if SafeToRunMacro()	{
 		Global AppName, INIOutlookVersion, CustomWaitTime, ININame
 		;TrayTip, Timed TrayTip, updated %AppName% Program
 		;ToolTip, `n`n`tCurrently Processing Macro: %Name%`t`t`n`n`t`tPress CTRL+Shift+` if the macro fails.`n`n `n, % A_ScreenWidth//2-232, A_ScreenHeight//2-55
@@ -80,8 +79,7 @@ CustomFilter(Name, Hotkey, Search, Folder, Read, NormalKey) {
 }
 
 ShortFilter(Search, NormalKey) {
-	if SafeToRunMacro()
-	{
+	if SafeToRunMacro()	{
 		Send, ^e%Search%{ENTER}
 		Sleep, 750
 		ControlFocus, SUPERGRID1, Microsoft Outlook
@@ -92,8 +90,7 @@ ShortFilter(Search, NormalKey) {
 }
 
 ShortFilterAll(Search, NormalKey) {
-	if SafeToRunMacro()
-	{
+	if SafeToRunMacro()	{
 		Send, ^!a%Search%{ENTER}
 		Sleep, 750
 		ControlFocus, SUPERGRID1, Microsoft Outlook
@@ -104,8 +101,7 @@ ShortFilterAll(Search, NormalKey) {
 }
 
 MoveSelected(Folder, NormalKey) {
-	if SafeToRunMacro()
-	{
+	if SafeToRunMacro()	{
 		Send, ^+v
 		WinWaitFull("Move Items"),
 		Send, {HOME}{NumpadMult}%Folder%{ENTER}
@@ -115,8 +111,7 @@ MoveSelected(Folder, NormalKey) {
 }
 
 JumpToFolder(Folder, NormalKey) {
-	if SafeToRunMacro()
-	{
+	if SafeToRunMacro()	{
 		Send, ^y
 		WinWaitFull("Go to Folder"),
 		Send, {HOME}{NumpadMult}%Folder%{ENTER}
@@ -188,3 +183,52 @@ CreateTaskFromEmail() {
 	Return
 }
 
+RemindHour(i, NormalKey) {
+	if SafeToRunMacro()	{
+		CheckTime := A_Hour + i
+		if (CheckTime >= 24) {
+			NewDate := AddTimeDays(1)
+		} else {
+			NewDate := AddTimeDays(0)
+		}
+		NewTime := AddTimeHours(i)
+		ToolTip, `n`n`tSetting Reminder for %NewDate% %NewTime%`t`t`n`n `n, % A_ScreenWidth//2-175, A_ScreenHeight//2-300
+		Sleep, 1000
+		FocusOnInbox()
+		Send, ^+g
+		WinWaitFull("Custom")
+		if ErrorLevel {
+			MsgBox, Failed to set reminder
+		} else {
+			Send, !r{TAB}%NewDate%{TAB}%NewTime%
+			Sleep, 100
+			Send, {ENTER}
+		}
+		ToolTip
+		FocusOnInbox()
+	} else {
+		Send %NormalKey%
+	}
+}
+
+RemindDay(i, NormalKey) {
+	if SafeToRunMacro()	{
+		NewDate := AddTimeDays(i)
+		NewTime := AddTimeHours(0)
+		FocusOnInbox()
+		Send, ^+g
+		WinWaitFull("Custom")
+		if ErrorLevel {
+			MsgBox, Failed to set reminder
+		} else {
+			Send, !r{TAB}%NewDate%{TAB}%NewTime%^a
+			WinGetPos, X, Y, W, H, Custom
+			ToolTip, `n`n`tSetting Reminder for %NewDate% %NewTime%`t`t`n`n`t       Change the time if you prefer and press ENTER.`n, % (W//2)-200, -100
+			WinWaitFull("Microsoft Outlook")
+		}
+		ToolTip
+		FocusOnInbox()
+	} else {
+		Send %NormalKey%
+	}
+}

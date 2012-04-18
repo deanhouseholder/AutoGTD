@@ -182,3 +182,72 @@ Return
 SearchAll:
 	RunMacro("^!a", A_ThisHotkey)
 Return
+
+Remind30Mins:
+	RemindHour(.5, A_ThisHotkey)
+Return
+
+Remind1Hour:
+	RemindHour(1, A_ThisHotkey)
+Return
+
+Remind2Hours:
+	RemindHour(2, A_ThisHotkey)
+Return
+
+Remind3Hours:
+	RemindHour(3, A_ThisHotkey)
+Return
+
+Remind4Hours:
+	RemindHour(4, A_ThisHotkey)
+Return
+
+Remind5Hours:
+	RemindHour(5, A_ThisHotkey)
+Return
+
+Remind6Hours:
+	RemindHour(6, A_ThisHotkey)
+Return
+
+Remind7Hours:
+	RemindHour(7, A_ThisHotkey)
+Return
+
+Remind8Hours:
+	RemindHour(8, A_ThisHotkey)
+Return
+
+Remind9Hours:
+	RemindHour(9, A_ThisHotkey)
+Return
+
+Remind1Day:
+	RemindDay(1, A_ThisHotkey)
+Return
+
+Remind2Days:
+	RemindDay(2, A_ThisHotkey)
+Return
+
+Remind3Days:
+	RemindDay(3, A_ThisHotkey)
+Return
+
+Remind4Days:
+	RemindDay(4, A_ThisHotkey)
+Return
+
+Remind5Days:
+	RemindDay(5, A_ThisHotkey)
+Return
+
+Remind6Days:
+	RemindDay(6, A_ThisHotkey)
+Return
+
+Remind7Days:
+	RemindDay(7, A_ThisHotkey)
+Return
+

@@ -94,3 +94,18 @@ CenterBox(BoxX, BoxY) {
 	CenterY := A_ScreenHeight//2-(BoxY//2)
 	Return "x" CenterX " y" CenterY
 }
+
+AddTimeDays(i) {
+	var1 =
+	var1 += %i%, days
+	FormatTime, var2,%var1%,dddd, MMMM d, yyyy
+	Return %var2%
+}
+
+AddTimeHours(i) {
+	var1 = 
+	var1 += %i%, hours
+	FormatTime, var2,%var1%,h:mm tt
+	Return %var2%
+}
+
