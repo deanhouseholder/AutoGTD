@@ -3,36 +3,113 @@
 ;*******************************************************************************
 
 CheatSheetHelper:
-	;Height := % A_ScreenHeight-320 > 700 ? 700 : A_ScreenHeight-320
-	Height := 440
-	Gui, 1:Add, Picture, x150 y-5 w128, %A_temp%\AutoGTD128.png
+	;Header
+	Gui, 1:Add, Picture, x300 y-5 w128, %A_temp%\AutoGTD128.png
 	Gui, 1:Font, s2, Arial Black
 	Gui, 1:Add, Text, x+35, `n
 	Gui, 1:Font, s22, Arial Black
 	Gui, 1:Add, Text, , %AppName%`nShortcuts
 
+	;Text below Header
 	Gui, 1:Font, s10, Tahoma
-	Gui, 1:Add, Text, x200 y125, Your current Outlook Hotkeys are mapped to:
-
+	Gui, 1:Add, Text, x340 y125, Your current Outlook Hotkeys are mapped to:
 	Gui, 1:Add,Text,y+0,`t
 
-	Gui, 1:Font, s8 bold underline, Tahoma
-	Gui, 1:Add, Text, x60 section, You Press                Description %A_Space% %A_Space% %A_Space% %A_Space% %A_Space% %A_Space% %A_Space% %A_Space% %A_Space% %A_Space% %A_Space% %A_Space%
-	Gui, 1:Font, normal
-	Gui, 1:Add, text, xs, %CheatSheet1%
 
+	;Column 1a
 	Gui, 1:Font, s8 bold underline, Tahoma
-	Gui, 1:Add, Text, ys, You Press                Description %A_Space% %A_Space% %A_Space% %A_Space% %A_Space% %A_Space% %A_Space% %A_Space% %A_Space% %A_Space% %A_Space% %A_Space%
+	Gui, 1:Add, Text, x30 section, You Press
 	Gui, 1:Font, normal
-	Gui, 1:Add, text, y+6 , %CheatSheet2%
 
+	Gui, 1:Font, s8 bold, Tahoma
+	Gui, 1:Add, text, xs, Category Assignment Hotkeys
+	Gui, 1:Font, normal
+	Gui, 1:Add, text, xs, %CheatSheet1a1%
+
+	Gui, 1:Font, s8 bold, Tahoma
+	Gui, 1:Add, text, xs, Move Selected Emails to a Folder Hotkeys
+	Gui, 1:Font, normal
+	Gui, 1:Add, text, xs, %CheatSheet1b1%
+
+	Gui, 1:Font, s8 bold, Tahoma
+	Gui, 1:Add, text, xs, Bulk-Move Emails to Folders Hotkeys
+	Gui, 1:Font, normal
+	Gui, 1:Add, text, xs, %CheatSheet1c1%
+
+	;Column 1b
+	Gui, 1:Font, s8 bold underline, Tahoma
+	Gui, 1:Add, Text, x110 ys section, Description
+	Gui, 1:Font, normal
+
+	Gui, 1:Add, text, xs y+25, %CheatSheet1a2%
+	Gui, 1:Add, text, xs y+25, %CheatSheet1b2%
+	Gui, 1:Add, text, xs y+25, %CheatSheet1c2%
+
+
+	;Column 2a
+	Gui, 1:Font, s8 bold underline, Tahoma
+	Gui, 1:Add, Text, x350 ys section, You Press
+	Gui, 1:Font, normal
+
+	Gui, 1:Font, s8 bold, Tahoma
+	Gui, 1:Add, text, xs, Jump to Folder Hotkeys
+	Gui, 1:Font, normal
+	Gui, 1:Add, text, xs, %CheatSheet2a1%
+
+	Gui, 1:Font, s8 bold, Tahoma
+	Gui, 1:Add, text, xs, Other Helpful Shortcut Hotkeys
+	Gui, 1:Font, normal
+	Gui, 1:Add, text, xs, %CheatSheet2b1%
+
+	Gui, 1:Font, s8 bold, Tahoma
+	Gui, 1:Add, text, xs, 
+	Gui, 1:Font, normal
+	Gui, 1:Add, text, xs, %CheatSheet2c1%
+
+	;Column 2b
+	Gui, 1:Font, s8 bold underline, Tahoma
+	Gui, 1:Add, Text, x440 ys section, Description
+	Gui, 1:Font, normal
+
+	Gui, 1:Add, text, xs y+25, %CheatSheet2a2%
+	Gui, 1:Add, text, xs y+25, %CheatSheet2b2%
+	Gui, 1:Add, text, xs y+25, %CheatSheet2c2%
+
+
+	;Column 3a
+	Gui, 1:Font, s8 bold underline, Tahoma
+	Gui, 1:Add, Text, x650 ys section, You Press
+	Gui, 1:Font, normal
+
+	Gui, 1:Font, s8 bold, Tahoma
+	Gui, 1:Add, text, xs, Reminders by Hours
+	Gui, 1:Font, normal
+	Gui, 1:Add, text, xs, %CheatSheet3a1%
+
+	Gui, 1:Font, s8 bold, Tahoma
+	Gui, 1:Add, text, xs, Reminders by Days
+	Gui, 1:Font, normal
+	Gui, 1:Add, text, xs, %CheatSheet3b1%
+
+	;Column 3b
+	Gui, 1:Font, s8 bold underline, Tahoma
+	Gui, 1:Add, Text, x750 ys section, Description
+	Gui, 1:Font, normal
+
+	Gui, 1:Add, text, xs y+25, %CheatSheet3a2%
+	Gui, 1:Add, text, xs y+25, %CheatSheet3b2%
+
+
+	;Footer
 	Gui, 1:Font, s10, Tahoma
-	Gui, 1:Add, Text, xm center, `nRemember to reload %AppName% after you make changes to %ININame% in order for the changes to take effect!
+	Gui, 1:Add, Text, x300, Use CTRL+SHIFT+SPACE to open this Cheat Sheet
+	Gui, 1:Add, Text, x150, `nRemember to reload %AppName% after you make changes to %ININame% in order for the changes to take effect!
 
-	Gui, 1:Add, Button, x175 y660 w150 h35 Default, %A_Space% %A_Space% %A_Space% Close %A_Space% %A_Space% %A_Space%
-	Gui, 1:Add, Button, x375 y660 w150 h35, Change Hotkeys
+	Gui, 1:Font, bold, Tahoma
+	Gui, 1:Add, Button, x300 y660 w150 h35 Default, %A_Space% %A_Space% %A_Space% Close %A_Space% %A_Space% %A_Space%
+	Gui, 1:Add, Button, x525 y660 w150 h35, Change Hotkeys
 
-	Gui, 1:Show, h710 w650, %AppName% Cheat Sheet
+	Gui, 1:Show, h710 w1000, %AppName% Cheat Sheet
 Return
 
 ButtonClose:
