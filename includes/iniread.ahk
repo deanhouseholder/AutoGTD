@@ -94,6 +94,7 @@ IniRead, Filter6Hotkey,     %ININame%, %AppName%, Filter6Hotkey
 IniRead, Filter6Search,     %ININame%, %AppName%, Filter6Search
 IniRead, Filter6Folder,     %ININame%, %AppName%, Filter6Folder
 IniRead, Filter6Read,       %ININame%, %AppName%, Filter6Read
+IniRead, FlagMessage,       %ININame%, %AppName%, FlagMessage
 IniRead, TaskFromEmail,     %ININame%, %AppName%, TaskFromEmail
 IniRead, NewTaskInEmail,    %ININame%, %AppName%, NewTaskInEmail
 IniRead, ShowUnread,        %ININame%, %AppName%, ShowUnread
@@ -158,6 +159,7 @@ Hotkey, %Filter3Hotkey%,    CustomFilter3,  UseErrorLevel
 Hotkey, %Filter4Hotkey%,    CustomFilter4,  UseErrorLevel
 Hotkey, %Filter5Hotkey%,    CustomFilter5,  UseErrorLevel
 Hotkey, %Filter6Hotkey%,    CustomFilter6,  UseErrorLevel
+Hotkey, %FlagMessage%,      FlagMessage,    UseErrorLevel
 Hotkey, %TaskFromEmail%,    TaskFromEmail,  UseErrorLevel
 Hotkey, %NewTaskInEmail%,   NewTaskInEmail, UseErrorLevel
 Hotkey, %ShowUnread%,       ShowUnread,     UseErrorLevel

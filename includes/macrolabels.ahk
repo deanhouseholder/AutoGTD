@@ -151,6 +151,10 @@ JumpToFolder0:
 	JumpToFolder(JumpTo0Folder, A_ThisHotkey)
 Return
 
+FlagMessage:
+	RunMacro("{INS}", A_ThisHotkey)
+Return
+
 SetReminder:
 	RunMacro("^+g", A_ThisHotkey)
 Return
