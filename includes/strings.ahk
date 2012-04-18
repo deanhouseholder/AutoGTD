@@ -160,6 +160,7 @@ CheatSheet2a1 =
 
 CheatSheet2b1 =
 (
+%FlagMessage%
 %SetReminderMap%
 %CreateTaskMap%
 %NewAppointmentMap%
@@ -169,6 +170,7 @@ CheatSheet2b1 =
 %ShowAllUnreadMap%
 %FocusOnSearchMap%
 %SearchAllMap%
+%OpenContextMenu%
 )
 
 
@@ -188,6 +190,7 @@ Switch to %JumpTo0Folder%
 
 CheatSheet2b2 =
 (
+Flag an Email as a To-Do item
 Set a Reminder
 Create a Task
 Create a new Appointment
@@ -197,6 +200,7 @@ Filter for unread emails
 Show unread emails in all folders
 Focus on search bar
 Search for email in all folders
+Open Context Menu
 )
 
 
