@@ -28,40 +28,13 @@ SafeToRunMacro() {
 }
 
 SafeToRunMacroOther() {
-	IfWinActive, - Message ahk_class rctrl_renwnd32
+	IfWinActive, - ahk_class rctrl_renwnd32
 	{
-		Return, True
-	} else {
-		IfWinActive, - Appointment ahk_class rctrl_renwnd32
+		IfWinNotActive - Microsoft Outlook ahk_class rctrl_renwnd32, NUIDocumentWindow
 		{
 			Return, True
 		} else {
-			IfWinActive, - Meeting ahk_class rctrl_renwnd32
-			{
-				Return, True
-			} else {
-				IfWinActive, - Recurring Meeting ahk_class rctrl_renwnd32
-				{
-					Return, True
-				} else {
-					IfWinActive, - Contact ahk_class rctrl_renwnd32
-					{
-						Return, True
-					} else {
-						IfWinActive, - Task ahk_class rctrl_renwnd32
-						{
-							Return, True
-						} else {
-							IfWinActive, - Discussion ahk_class rctrl_renwnd32
-							{
-								Return, True
-							} else {
-								Return, False
-							}
-						}
-					}
-				}
-			}
+			Return, False
 		}
 	}
 }

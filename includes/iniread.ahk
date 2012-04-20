@@ -131,105 +131,83 @@ IniRead, RmndAndMove6Days,  %ININame%, %AppName%, RmndAndMove6Days
 IniRead, RmndAndMove7Days,  %ININame%, %AppName%, RmndAndMove7Days
 
 Hotkey, IfWinActive, - Microsoft Outlook ahk_class rctrl_renwnd32, NUIDocumentWindow
-Hotkey, %Category1Hotkey%,  Category1,        UseErrorLevel
-Hotkey, %Category2Hotkey%,  Category2,        UseErrorLevel
-Hotkey, %Category3Hotkey%,  Category3,        UseErrorLevel
-Hotkey, %Category4Hotkey%,  Category4,        UseErrorLevel
-Hotkey, %Category5Hotkey%,  Category5,        UseErrorLevel
-Hotkey, %Category6Hotkey%,  Category6,        UseErrorLevel
-Hotkey, %Category7Hotkey%,  Category7,        UseErrorLevel
-Hotkey, %Category8Hotkey%,  Category8,        UseErrorLevel
-Hotkey, %Category9Hotkey%,  Category9,        UseErrorLevel
-Hotkey, %Category10Hotkey%, Category10,       UseErrorLevel
-Hotkey, %OpenCategories%,   OpenCategories,   UseErrorLevel
-Hotkey, %Move1Hotkey%,      Move1ToFolder,    UseErrorLevel
-Hotkey, %Move2Hotkey%,      Move2ToFolder,    UseErrorLevel
-Hotkey, %Move3Hotkey%,      Move3ToFolder,    UseErrorLevel
-Hotkey, %Move4Hotkey%,      Move4ToFolder,    UseErrorLevel
-Hotkey, %Move5Hotkey%,      Move5ToFolder,    UseErrorLevel
-Hotkey, %Move6Hotkey%,      Move6ToFolder,    UseErrorLevel
-Hotkey, %Move7Hotkey%,      Move7ToFolder,    UseErrorLevel
-Hotkey, %Move8Hotkey%,      Move8ToFolder,    UseErrorLevel
-Hotkey, %Move9Hotkey%,      Move9ToFolder,    UseErrorLevel
-Hotkey, %JumpTo1Hotkey%,    JumpToFolder1,    UseErrorLevel
-Hotkey, %JumpTo2Hotkey%,    JumpToFolder2,    UseErrorLevel
-Hotkey, %JumpTo3Hotkey%,    JumpToFolder3,    UseErrorLevel
-Hotkey, %JumpTo4Hotkey%,    JumpToFolder4,    UseErrorLevel
-Hotkey, %JumpTo5Hotkey%,    JumpToFolder5,    UseErrorLevel
-Hotkey, %JumpTo6Hotkey%,    JumpToFolder6,    UseErrorLevel
-Hotkey, %JumpTo7Hotkey%,    JumpToFolder7,    UseErrorLevel
-Hotkey, %JumpTo8Hotkey%,    JumpToFolder8,    UseErrorLevel
-Hotkey, %JumpTo9Hotkey%,    JumpToFolder9,    UseErrorLevel
-Hotkey, %JumpTo0Hotkey%,    JumpToFolder0,    UseErrorLevel
-Hotkey, %SetReminder%,      SetReminder,      UseErrorLevel
-Hotkey, %CreateTask%,       CreateTask,       UseErrorLevel
-Hotkey, %NewAppointment%,   NewAppointment,   UseErrorLevel
-Hotkey, %Filter1Hotkey%,    CustomFilter1,    UseErrorLevel
-Hotkey, %Filter2Hotkey%,    CustomFilter2,    UseErrorLevel
-Hotkey, %Filter3Hotkey%,    CustomFilter3,    UseErrorLevel
-Hotkey, %Filter4Hotkey%,    CustomFilter4,    UseErrorLevel
-Hotkey, %Filter5Hotkey%,    CustomFilter5,    UseErrorLevel
-Hotkey, %Filter6Hotkey%,    CustomFilter6,    UseErrorLevel
-Hotkey, %FlagMessage%,      FlagMessage,      UseErrorLevel
-Hotkey, %TaskFromEmail%,    TaskFromEmail,    UseErrorLevel
-Hotkey, %NewTaskInEmail%,   NewTaskInEmail,   UseErrorLevel
-Hotkey, %ShowUnread%,       ShowUnread,       UseErrorLevel
-Hotkey, %ShowAllUnread%,    ShowAllUnread,    UseErrorLevel
-Hotkey, %FocusOnSearch%,    FocusOnSearch,    UseErrorLevel
-Hotkey, %SearchAll%,        SearchAll,        UseErrorLevel
-Hotkey, %OpenContextMenu%,  OpenContextMenu,  UseErrorLevel
-Hotkey, %OpenAddressBook%,  OpenAddressBook,  UseErrorLevel
-Hotkey, %Remind30mins%,     Remind30mins,     UseErrorLevel
-Hotkey, %Remind1hour%,      Remind1hour,      UseErrorLevel
-Hotkey, %Remind2hours%,     Remind2hours,     UseErrorLevel
-Hotkey, %Remind3hours%,     Remind3hours,     UseErrorLevel
-Hotkey, %Remind4hours%,     Remind4hours,     UseErrorLevel
-Hotkey, %Remind5hours%,     Remind5hours,     UseErrorLevel
-Hotkey, %Remind6hours%,     Remind6hours,     UseErrorLevel
-Hotkey, %Remind7hours%,     Remind7hours,     UseErrorLevel
-Hotkey, %Remind8hours%,     Remind8hours,     UseErrorLevel
-Hotkey, %Remind9hours%,     Remind9hours,     UseErrorLevel
-Hotkey, %Remind1day%,       Remind1day,       UseErrorLevel
-Hotkey, %Remind2days%,      Remind2days,      UseErrorLevel
-Hotkey, %Remind3days%,      Remind3days,      UseErrorLevel
-Hotkey, %Remind4days%,      Remind4days,      UseErrorLevel
-Hotkey, %Remind5days%,      Remind5days,      UseErrorLevel
-Hotkey, %Remind6days%,      Remind6days,      UseErrorLevel
-Hotkey, %Remind7days%,      Remind7days,      UseErrorLevel
-Hotkey, %RmndAndMove1Day%,  RmndAndMove1Day,  UseErrorLevel
-Hotkey, %RmndAndMove2Days%, RmndAndMove2Days, UseErrorLevel
-Hotkey, %RmndAndMove3Days%, RmndAndMove3Days, UseErrorLevel
-Hotkey, %RmndAndMove4Days%, RmndAndMove4Days, UseErrorLevel
-Hotkey, %RmndAndMove5Days%, RmndAndMove5Days, UseErrorLevel
-Hotkey, %RmndAndMove6Days%, RmndAndMove6Days, UseErrorLevel
-Hotkey, %RmndAndMove7Days%, RmndAndMove7Days, UseErrorLevel
+	Hotkey, %Category1Hotkey%,  Category1,        UseErrorLevel
+	Hotkey, %Category2Hotkey%,  Category2,        UseErrorLevel
+	Hotkey, %Category3Hotkey%,  Category3,        UseErrorLevel
+	Hotkey, %Category4Hotkey%,  Category4,        UseErrorLevel
+	Hotkey, %Category5Hotkey%,  Category5,        UseErrorLevel
+	Hotkey, %Category6Hotkey%,  Category6,        UseErrorLevel
+	Hotkey, %Category7Hotkey%,  Category7,        UseErrorLevel
+	Hotkey, %Category8Hotkey%,  Category8,        UseErrorLevel
+	Hotkey, %Category9Hotkey%,  Category9,        UseErrorLevel
+	Hotkey, %Category10Hotkey%, Category10,       UseErrorLevel
+	Hotkey, %OpenCategories%,   OpenCategories,   UseErrorLevel
+	Hotkey, %Move1Hotkey%,      Move1ToFolder,    UseErrorLevel
+	Hotkey, %Move2Hotkey%,      Move2ToFolder,    UseErrorLevel
+	Hotkey, %Move3Hotkey%,      Move3ToFolder,    UseErrorLevel
+	Hotkey, %Move4Hotkey%,      Move4ToFolder,    UseErrorLevel
+	Hotkey, %Move5Hotkey%,      Move5ToFolder,    UseErrorLevel
+	Hotkey, %Move6Hotkey%,      Move6ToFolder,    UseErrorLevel
+	Hotkey, %Move7Hotkey%,      Move7ToFolder,    UseErrorLevel
+	Hotkey, %Move8Hotkey%,      Move8ToFolder,    UseErrorLevel
+	Hotkey, %Move9Hotkey%,      Move9ToFolder,    UseErrorLevel
+	Hotkey, %JumpTo1Hotkey%,    JumpToFolder1,    UseErrorLevel
+	Hotkey, %JumpTo2Hotkey%,    JumpToFolder2,    UseErrorLevel
+	Hotkey, %JumpTo3Hotkey%,    JumpToFolder3,    UseErrorLevel
+	Hotkey, %JumpTo4Hotkey%,    JumpToFolder4,    UseErrorLevel
+	Hotkey, %JumpTo5Hotkey%,    JumpToFolder5,    UseErrorLevel
+	Hotkey, %JumpTo6Hotkey%,    JumpToFolder6,    UseErrorLevel
+	Hotkey, %JumpTo7Hotkey%,    JumpToFolder7,    UseErrorLevel
+	Hotkey, %JumpTo8Hotkey%,    JumpToFolder8,    UseErrorLevel
+	Hotkey, %JumpTo9Hotkey%,    JumpToFolder9,    UseErrorLevel
+	Hotkey, %JumpTo0Hotkey%,    JumpToFolder0,    UseErrorLevel
+	Hotkey, %SetReminder%,      SetReminder,      UseErrorLevel
+	Hotkey, %CreateTask%,       CreateTask,       UseErrorLevel
+	Hotkey, %NewAppointment%,   NewAppointment,   UseErrorLevel
+	Hotkey, %Filter1Hotkey%,    CustomFilter1,    UseErrorLevel
+	Hotkey, %Filter2Hotkey%,    CustomFilter2,    UseErrorLevel
+	Hotkey, %Filter3Hotkey%,    CustomFilter3,    UseErrorLevel
+	Hotkey, %Filter4Hotkey%,    CustomFilter4,    UseErrorLevel
+	Hotkey, %Filter5Hotkey%,    CustomFilter5,    UseErrorLevel
+	Hotkey, %Filter6Hotkey%,    CustomFilter6,    UseErrorLevel
+	Hotkey, %FlagMessage%,      FlagMessage,      UseErrorLevel
+	Hotkey, %TaskFromEmail%,    TaskFromEmail,    UseErrorLevel
+	Hotkey, %NewTaskInEmail%,   NewTaskInEmail,   UseErrorLevel
+	Hotkey, %ShowUnread%,       ShowUnread,       UseErrorLevel
+	Hotkey, %ShowAllUnread%,    ShowAllUnread,    UseErrorLevel
+	Hotkey, %FocusOnSearch%,    FocusOnSearch,    UseErrorLevel
+	Hotkey, %SearchAll%,        SearchAll,        UseErrorLevel
+	Hotkey, %OpenContextMenu%,  OpenContextMenu,  UseErrorLevel
+	Hotkey, %OpenAddressBook%,  OpenAddressBook,  UseErrorLevel
+	Hotkey, %Remind30mins%,     Remind30mins,     UseErrorLevel
+	Hotkey, %Remind1hour%,      Remind1hour,      UseErrorLevel
+	Hotkey, %Remind2hours%,     Remind2hours,     UseErrorLevel
+	Hotkey, %Remind3hours%,     Remind3hours,     UseErrorLevel
+	Hotkey, %Remind4hours%,     Remind4hours,     UseErrorLevel
+	Hotkey, %Remind5hours%,     Remind5hours,     UseErrorLevel
+	Hotkey, %Remind6hours%,     Remind6hours,     UseErrorLevel
+	Hotkey, %Remind7hours%,     Remind7hours,     UseErrorLevel
+	Hotkey, %Remind8hours%,     Remind8hours,     UseErrorLevel
+	Hotkey, %Remind9hours%,     Remind9hours,     UseErrorLevel
+	Hotkey, %Remind1day%,       Remind1day,       UseErrorLevel
+	Hotkey, %Remind2days%,      Remind2days,      UseErrorLevel
+	Hotkey, %Remind3days%,      Remind3days,      UseErrorLevel
+	Hotkey, %Remind4days%,      Remind4days,      UseErrorLevel
+	Hotkey, %Remind5days%,      Remind5days,      UseErrorLevel
+	Hotkey, %Remind6days%,      Remind6days,      UseErrorLevel
+	Hotkey, %Remind7days%,      Remind7days,      UseErrorLevel
+	Hotkey, %RmndAndMove1Day%,  RmndAndMove1Day,  UseErrorLevel
+	Hotkey, %RmndAndMove2Days%, RmndAndMove2Days, UseErrorLevel
+	Hotkey, %RmndAndMove3Days%, RmndAndMove3Days, UseErrorLevel
+	Hotkey, %RmndAndMove4Days%, RmndAndMove4Days, UseErrorLevel
+	Hotkey, %RmndAndMove5Days%, RmndAndMove5Days, UseErrorLevel
+	Hotkey, %RmndAndMove6Days%, RmndAndMove6Days, UseErrorLevel
+	Hotkey, %RmndAndMove7Days%, RmndAndMove7Days, UseErrorLevel
 Hotkey, IfWinActive
 
-Hotkey, IfWinActive, - Message ahk_class rctrl_renwnd32
-Hotkey, %CloseWindow%,      CloseWindow,      UseErrorLevel
-Hotkey, IfWinActive
-
-Hotkey, IfWinActive, - Appointment ahk_class rctrl_renwnd32
-Hotkey, %CloseWindow%,      CloseWindow,      UseErrorLevel
-Hotkey, IfWinActive
-
-Hotkey, IfWinActive, - Meeting ahk_class rctrl_renwnd32
-Hotkey, %CloseWindow%,      CloseWindow,      UseErrorLevel
-Hotkey, IfWinActive
-
-Hotkey, IfWinActive, - Recurring Meeting ahk_class rctrl_renwnd32
-Hotkey, %CloseWindow%,      CloseWindow,      UseErrorLevel
-Hotkey, IfWinActive
-
-Hotkey, IfWinActive, - Contact ahk_class rctrl_renwnd32
-Hotkey, %CloseWindow%,      CloseWindow,      UseErrorLevel
-Hotkey, IfWinActive
-
-Hotkey, IfWinActive, - Task ahk_class rctrl_renwnd32
-Hotkey, %CloseWindow%,      CloseWindow,      UseErrorLevel
-Hotkey, IfWinActive
-
-Hotkey, IfWinActive, - Discussion ahk_class rctrl_renwnd32
-Hotkey, %CloseWindow%,      CloseWindow,      UseErrorLevel
+Hotkey, IfWinActive, - ahk_class rctrl_renwnd32
+	Hotkey, IfWinNotActive, - Microsoft Outlook ahk_class rctrl_renwnd32, NUIDocumentWindow
+	Hotkey, %CloseWindow%,      CloseWindow,      UseErrorLevel
+	Hotkey, IfWinNotActive
 Hotkey, IfWinActive
 
