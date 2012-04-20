@@ -37,8 +37,8 @@ RunMacro(SpecialKey, NormalKey) {
 }
 
 ConvertModifiers(x){
-	StringReplace, y, x, +, SHFT+, All
-	StringReplace, y, y, ^, CTL+, All
+	StringReplace, y, x, +, SHIFT+, All
+	StringReplace, y, y, ^, CTRL+, All
 	StringReplace, y, y, !, ALT+, All
 	StringReplace, y, y, #, WIN+, All
 	Return y

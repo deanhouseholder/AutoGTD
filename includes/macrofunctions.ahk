@@ -232,3 +232,21 @@ RemindDay(i, NormalKey) {
 		Send %NormalKey%
 	}
 }
+
+RemindDayAuto(i, NormalKey) {
+	if SafeToRunMacro()	{
+		NewDate := AddTimeDays(i)
+		NewTime := AddTimeHours(0)
+		FocusOnInbox()
+		Send, ^+g
+		WinWaitFull("Custom")
+		if ErrorLevel {
+			MsgBox, Failed to set reminder
+		} else {
+			Send, !r{TAB}%NewDate%{TAB}%NewTime%^a{ENTER}
+		}
+		FocusOnInbox()
+	} else {
+		Send %NormalKey%
+	}
+}

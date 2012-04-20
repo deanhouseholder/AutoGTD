@@ -91,6 +91,11 @@ CheatSheetHelper:
 	Gui, 1:Font, normal
 	Gui, 1:Add, text, xs, %CheatSheet3b1%
 
+	Gui, 1:Font, s8 bold, Tahoma
+	Gui, 1:Add, text, xs, Reminders by Days and Archive
+	Gui, 1:Font, normal
+	Gui, 1:Add, text, xs, %CheatSheet3c1%
+
 	;Column 3b
 	Gui, 1:Font, s8 bold underline, Tahoma
 	Gui, 1:Add, Text, x750 ys section, Description
@@ -98,6 +103,7 @@ CheatSheetHelper:
 
 	Gui, 1:Add, text, xs y+25, %CheatSheet3a2%
 	Gui, 1:Add, text, xs y+25, %CheatSheet3b2%
+	Gui, 1:Add, text, xs y+25, %CheatSheet3c2%
 
 
 	;Footer
@@ -109,7 +115,7 @@ CheatSheetHelper:
 	Gui, 1:Add, Button, x300 y660 w150 h35 Default, %A_Space% %A_Space% %A_Space% Close %A_Space% %A_Space% %A_Space%
 	Gui, 1:Add, Button, x525 y660 w150 h35, Change Hotkeys
 
-	Gui, 1:Show, h710 w1000, %AppName% Cheat Sheet
+	Gui, 1:Show, h710 w975, %AppName% Cheat Sheet
 Return
 
 ButtonClose:

@@ -67,6 +67,19 @@ Remind5daysMap    := ConvertModifiers(Remind5days)
 Remind6daysMap    := ConvertModifiers(Remind6days)
 Remind7daysMap    := ConvertModifiers(Remind7days)
 
+RmndAndMoveFoldrMap := ConvertModifiers(RmndAndMoveFoldr)
+RmndAndMove1DayMap  := ConvertModifiers(RmndAndMove1Day)
+RmndAndMove2DaysMap := ConvertModifiers(RmndAndMove2Days)
+RmndAndMove3DaysMap := ConvertModifiers(RmndAndMove3Days)
+RmndAndMove4DaysMap := ConvertModifiers(RmndAndMove4Days)
+RmndAndMove5DaysMap := ConvertModifiers(RmndAndMove5Days)
+RmndAndMove6DaysMap := ConvertModifiers(RmndAndMove6Days)
+RmndAndMove7DaysMap := ConvertModifiers(RmndAndMove7Days)
+
+
+
+
+;Group 1
 CheatSheet1a1 =
 (
 %Category1HotkeyMap%
@@ -80,29 +93,6 @@ CheatSheet1a1 =
 %Category9HotkeyMap%
 %Category10HotkeyMap%
 %OpenCategoriesMap%
-)
-
-CheatSheet1b1 =
-(
-%Move1HotkeyMap%
-%Move2HotkeyMap%
-%Move3HotkeyMap%
-%Move4HotkeyMap%
-%Move5HotkeyMap%
-%Move6HotkeyMap%
-%Move7HotkeyMap%
-%Move8HotkeyMap%
-%Move9HotkeyMap%
-)
-
-CheatSheet1c1 =
-(
-%Filter1HotkeyMap%
-%Filter2HotkeyMap%
-%Filter3HotkeyMap%
-%Filter4HotkeyMap%
-%Filter5HotkeyMap%
-%Filter6HotkeyMap%
 )
 
 CheatSheet1a2 =
@@ -120,6 +110,20 @@ CheatSheet1a2 =
 Open Categories Menu
 )
 
+;Group 2
+CheatSheet1b1 =
+(
+%Move1HotkeyMap%
+%Move2HotkeyMap%
+%Move3HotkeyMap%
+%Move4HotkeyMap%
+%Move5HotkeyMap%
+%Move6HotkeyMap%
+%Move7HotkeyMap%
+%Move8HotkeyMap%
+%Move9HotkeyMap%
+)
+
 CheatSheet1b2 =
 (
 Move message(s) to %Move1Folder%
@@ -133,6 +137,17 @@ Move message(s) to %Move8Folder%
 Move message(s) to %Move9Folder%
 )
 
+;Group 3
+CheatSheet1c1 =
+(
+%Filter1HotkeyMap%
+%Filter2HotkeyMap%
+%Filter3HotkeyMap%
+%Filter4HotkeyMap%
+%Filter5HotkeyMap%
+%Filter6HotkeyMap%
+)
+
 CheatSheet1c2 =
 (
 %Filter1Name%
@@ -143,7 +158,7 @@ CheatSheet1c2 =
 %Filter6Name%
 )
 
-
+;Group 4
 CheatSheet2a1 =
 (
 %JumpTo1HotkeyMap%
@@ -158,6 +173,21 @@ CheatSheet2a1 =
 %JumpTo0HotkeyMap%
 )
 
+CheatSheet2a2 =
+(
+Switch to %JumpTo1Folder%
+Switch to %JumpTo2Folder%
+Switch to %JumpTo3Folder%
+Switch to %JumpTo4Folder%
+Switch to %JumpTo5Folder%
+Switch to %JumpTo6Folder%
+Switch to %JumpTo7Folder%
+Switch to %JumpTo8Folder%
+Switch to %JumpTo9Folder%
+Switch to %JumpTo0Folder%
+)
+
+;Group 5
 CheatSheet2b1 =
 (
 %FlagMessage%
@@ -172,21 +202,6 @@ CheatSheet2b1 =
 %SearchAllMap%
 %OpenContextMenu%
 %OpenAddressBook%
-)
-
-
-CheatSheet2a2 =
-(
-Switch to %JumpTo1Folder%
-Switch to %JumpTo2Folder%
-Switch to %JumpTo3Folder%
-Switch to %JumpTo4Folder%
-Switch to %JumpTo5Folder%
-Switch to %JumpTo6Folder%
-Switch to %JumpTo7Folder%
-Switch to %JumpTo8Folder%
-Switch to %JumpTo9Folder%
-Switch to %JumpTo0Folder%
 )
 
 CheatSheet2b2 =
@@ -205,7 +220,7 @@ Open the Context Menu
 Open the Address Book
 )
 
-
+;Group 6
 CheatSheet3a1 =
 (
 %Remind30minsMap%
@@ -234,6 +249,7 @@ Set a Reminder for 8 hours
 Set a Reminder for 9 hours
 )
 
+;Group 7
 CheatSheet3b1 =
 (
 %Remind1dayMap%
@@ -257,14 +273,39 @@ Set a Reminder for 7 days
 )
 
 
+;Group 8
+CheatSheet3c1 =
+(
+%RmndAndMoveFoldrMap%
+%RmndAndMove1DayMap%
+%RmndAndMove2DaysMap%
+%RmndAndMove3DaysMap%
+%RmndAndMove4DaysMap%
+%RmndAndMove5DaysMap%
+%RmndAndMove6DaysMap%
+%RmndAndMove7DaysMap%
+)
+
+CheatSheet3c2 =
+(
+Set Reminder and archive to this folder
+Set Reminder for 1 day and archive
+Set Reminder for 2 days and archive
+Set Reminder for 3 days and archive
+Set Reminder for 4 days and archive
+Set Reminder for 5 days and archive
+Set Reminder for 6 days and archive
+Set Reminder for 7 days and archive
+)
+;End of Cheat Sheet
 
 HelpProgramText =
 (
 AutoGTD Help
 This program helps you implement the Getting Things Done (GTD)
-methodology in Outlook 2007 by giving macros with hotkeys that
-you can use to quickly organize your email messages to folders
-under your Inbox.
+methodology in Outlook 2007/2010 by giving macros with hotkeys
+that you can use to quickly organize your email messages to
+folders under your Inbox.
 
 To view the full help, please visit:
 )

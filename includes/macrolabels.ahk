@@ -267,3 +267,38 @@ Remind7Days:
 	RemindDay(7, A_ThisHotkey)
 Return
 
+RmndAndMove1Day:
+	RemindDayAuto(1, A_ThisHotkey)
+	MoveSelected(RmndAndMoveFoldr, A_ThisHotkey)
+Return
+
+RmndAndMove2Days:
+	RemindDayAuto(2, A_ThisHotkey)
+	MoveSelected(RmndAndMoveFoldr, A_ThisHotkey)
+Return
+
+RmndAndMove3Days:
+	RemindDayAuto(3, A_ThisHotkey)
+	MoveSelected(RmndAndMoveFoldr, A_ThisHotkey)
+Return
+
+RmndAndMove4Days:
+	RemindDayAuto(4, A_ThisHotkey)
+	MoveSelected(RmndAndMoveFoldr, A_ThisHotkey)
+Return
+
+RmndAndMove5Days:
+	RemindDayAuto(5, A_ThisHotkey)
+	MoveSelected(RmndAndMoveFoldr, A_ThisHotkey)
+Return
+
+RmndAndMove6Days:
+	RemindDayAuto(6, A_ThisHotkey)
+	MoveSelected(RmndAndMoveFoldr, A_ThisHotkey)
+Return
+
+RmndAndMove7Days:
+	RemindDayAuto(7, A_ThisHotkey)
+	MoveSelected(RmndAndMoveFoldr, A_ThisHotkey)
+Return
+
