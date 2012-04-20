@@ -39,6 +39,7 @@ JumpTo8HotkeyMap := ConvertModifiers(JumpTo8Hotkey)
 JumpTo9HotkeyMap := ConvertModifiers(JumpTo9Hotkey)
 JumpTo0HotkeyMap := ConvertModifiers(JumpTo0Hotkey)
 
+FlagMessageMap    := ConvertModifiers(FlagMessage)
 SetReminderMap    := ConvertModifiers(SetReminder)
 CreateTaskMap     := ConvertModifiers(CreateTask)
 NewAppointmentMap := ConvertModifiers(NewAppointment)
@@ -48,6 +49,9 @@ ShowUnreadMap     := ConvertModifiers(ShowUnread)
 ShowAllUnreadMap  := ConvertModifiers(ShowAllUnread)
 FocusOnSearchMap  := ConvertModifiers(FocusOnSearch)
 SearchAllMap      := ConvertModifiers(SearchAll)
+OpenContextMenuMap:= ConvertModifiers(OpenContextMenu)
+OpenAddressBookMap:= ConvertModifiers(OpenAddressBook)
+CloseWindowMap    := ConvertModifiers(CloseWindow)
 
 Remind30minsMap   := ConvertModifiers(Remind30mins)
 Remind1hourMap    := ConvertModifiers(Remind1hour)
@@ -190,7 +194,7 @@ Switch to %JumpTo0Folder%
 ;Group 5
 CheatSheet2b1 =
 (
-%FlagMessage%
+%FlagMessageMap%
 %SetReminderMap%
 %CreateTaskMap%
 %NewAppointmentMap%
@@ -200,8 +204,9 @@ CheatSheet2b1 =
 %ShowAllUnreadMap%
 %FocusOnSearchMap%
 %SearchAllMap%
-%OpenContextMenu%
-%OpenAddressBook%
+%OpenContextMenuMap%
+%OpenAddressBookMap%
+%CloseWindowMap%
 )
 
 CheatSheet2b2 =
@@ -218,6 +223,7 @@ Focus on search bar
 Search for email in all folders
 Open the Context Menu
 Open the Address Book
+Close secondary windows
 )
 
 ;Group 6

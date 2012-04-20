@@ -103,6 +103,7 @@ IniRead, FocusOnSearch,     %ININame%, %AppName%, FocusOnSearch
 IniRead, SearchAll,         %ININame%, %AppName%, SearchAll
 IniRead, OpenContextMenu,   %ININame%, %AppName%, OpenContextMenu
 IniRead, OpenAddressBook,   %ININame%, %AppName%, OpenAddressBook
+IniRead, CloseWindow,       %ININame%, %AppName%, CloseWindow
 IniRead, Remind30mins,      %ININame%, %AppName%, Remind30mins
 IniRead, Remind1hour,       %ININame%, %AppName%, Remind1hour
 IniRead, Remind2hours,      %ININame%, %AppName%, Remind2hours
@@ -203,3 +204,32 @@ Hotkey, %RmndAndMove5Days%, RmndAndMove5Days, UseErrorLevel
 Hotkey, %RmndAndMove6Days%, RmndAndMove6Days, UseErrorLevel
 Hotkey, %RmndAndMove7Days%, RmndAndMove7Days, UseErrorLevel
 Hotkey, IfWinActive
+
+Hotkey, IfWinActive, - Message ahk_class rctrl_renwnd32
+Hotkey, %CloseWindow%,      CloseWindow,      UseErrorLevel
+Hotkey, IfWinActive
+
+Hotkey, IfWinActive, - Appointment ahk_class rctrl_renwnd32
+Hotkey, %CloseWindow%,      CloseWindow,      UseErrorLevel
+Hotkey, IfWinActive
+
+Hotkey, IfWinActive, - Meeting ahk_class rctrl_renwnd32
+Hotkey, %CloseWindow%,      CloseWindow,      UseErrorLevel
+Hotkey, IfWinActive
+
+Hotkey, IfWinActive, - Recurring Meeting ahk_class rctrl_renwnd32
+Hotkey, %CloseWindow%,      CloseWindow,      UseErrorLevel
+Hotkey, IfWinActive
+
+Hotkey, IfWinActive, - Contact ahk_class rctrl_renwnd32
+Hotkey, %CloseWindow%,      CloseWindow,      UseErrorLevel
+Hotkey, IfWinActive
+
+Hotkey, IfWinActive, - Task ahk_class rctrl_renwnd32
+Hotkey, %CloseWindow%,      CloseWindow,      UseErrorLevel
+Hotkey, IfWinActive
+
+Hotkey, IfWinActive, - Discussion ahk_class rctrl_renwnd32
+Hotkey, %CloseWindow%,      CloseWindow,      UseErrorLevel
+Hotkey, IfWinActive
+

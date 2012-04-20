@@ -183,6 +183,12 @@ CreateTaskFromEmail() {
 	Return
 }
 
+SafeClose() {
+	if SafeToRunMacroOther()	{
+		Send, !{F4}
+	}
+}
+
 RemindHour(i, NormalKey) {
 	if SafeToRunMacro()	{
 		CheckTime := A_Hour + i

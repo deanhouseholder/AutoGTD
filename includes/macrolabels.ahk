@@ -199,6 +199,10 @@ OpenAddressBook:
 	RunMacro("^+b", A_ThisHotkey)
 Return
 
+CloseWindow:
+	SafeClose()
+Return
+
 Remind30Mins:
 	RemindHour(.5, A_ThisHotkey)
 Return
