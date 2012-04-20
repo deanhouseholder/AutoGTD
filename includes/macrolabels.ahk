@@ -115,7 +115,7 @@ JumpToFolder1:
 	JumpToFolder(JumpTo1Folder, A_ThisHotkey)
 Return
 
-JumpToFolder:
+JumpToFolder2:
 	JumpToFolder(JumpTo2Folder, A_ThisHotkey)
 Return
 
