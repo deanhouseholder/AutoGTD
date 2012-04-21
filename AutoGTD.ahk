@@ -1,8 +1,8 @@
 ;*******************************************************************************
 ;				Information
 ;*******************************************************************************
-;Title:			AutoGTD v0.5
-;Date:			11 Jun 2010
+;Title:			AutoGTD v0.8
+;Date:			20 April 2012
 ;Author:		Dean Householder <deanhouseholder@gmail.com>
 ; AutoGTD is a set of Outlook Macros to help implement the Getting Things Done
 ; concepts into Outlook.  It provides configurable shortcuts which are able to
@@ -15,7 +15,7 @@
 ;				License
 ;*******************************************************************************
 ; AutoGTD - Outlook Hotkeys
-; Copyright (C) 2010  Dean Householder
+; Copyright (C) 2012  Dean Householder
 ;
 ; This program is free software: you can redistribute it and/or modify
 ; it under the terms of the GNU General Public License as published by
@@ -37,11 +37,13 @@
 ;				Version History
 ;*******************************************************************************
 ;11 June 2010 - 0.5 Initial Release
+;20 March 2012 - 0.6 Release
+;20 April 2012 - 0.8 Release
 
 ;*******************************************************************************
 ;				Variables
 ;*******************************************************************************
-AppVersion    = 0.7
+AppVersion    = 0.8
 AppName       = AutoGTD
 AppNameFull   = AutoGTD - Outlook Hotkeys
 AppFileName   = AutoGTD
