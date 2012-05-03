@@ -62,7 +62,7 @@ JumpToRun    := 0
 #Include includes\top.ahk
 #Include includes\commonfunctions.ahk
 #Include includes\iniread.ahk
-#Include includes\runchecks.ahk
+;#Include includes\runchecks.ahk
 #Include includes\strings.ahk
 #Include includes\mappedhotkeys.ahk
 #Include includes\traylabels.ahk
