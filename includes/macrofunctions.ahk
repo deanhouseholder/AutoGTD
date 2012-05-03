@@ -7,7 +7,7 @@ CustomFilter(Name, Hotkey, Search, Folder, Read, NormalKey) {
 		Global AppName, INIOutlookVersion, CustomWaitTime, ININame
 		;TrayTip, Timed TrayTip, updated %AppName% Program
 		;ToolTip, `n`n`tCurrently Processing Macro: %Name%`t`t`n`n`t`tPress CTRL+Shift+` if the macro fails.`n`n `n, % A_ScreenWidth//2-232, A_ScreenHeight//2-55
-		IfExist, %A_temp%\%AppName%400x64.gif, SplashImage, %A_temp%\%AppName%400x64.gif, b1 cwffffff ct000000 fm16 wm550 fs10 ws550 y10, Currently Processing Macro: %Name%, %AppName%, , Arial
+		IfExist, %A_ScriptDir%\%AppName%400x64.gif, SplashImage, %A_ScriptDir%\%AppName%400x64.gif, b1 cwffffff ct000000 fm16 wm550 fs10 ws550 y10, Currently Processing Macro: %Name%, %AppName%, , Arial
 		Progress, 15 WM400 FS8,, %AppName% is currently Processing Macro:`n%Name%,Processing, Arial
 
 		Send, ^e%Search%{ENTER}
@@ -47,7 +47,7 @@ CustomFilter(Name, Hotkey, Search, Folder, Read, NormalKey) {
 			Progress, 100
 		} Else {
 			Progress, 75, ,,Canceling - No Matches Found
-			SplashImage, %A_temp%\%AppName%400x64.gif, b1 cwffffff ct000000 fm16 wm550 fs10 ws550 y10, Macro Failed: %Name%`nPlease try again., %AppName% - Macro Failed!, , Arial
+			SplashImage, %A_ScriptDir%\%AppName%400x64.gif, b1 cwffffff ct000000 fm16 wm550 fs10 ws550 y10, Macro Failed: %Name%`nPlease try again., %AppName% - Macro Failed!, , Arial
 			Sleep, 70
 			Progress, 60
 			Sleep, 70

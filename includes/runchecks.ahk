@@ -22,4 +22,4 @@ if (VersionAskAgain != "N") ; If previously set to "N" then don't check for upda
 	}
 	IniRead, INIOutlookVersion,%ININame%, %AppName%, OutlookVersion
 	IniRead, VersionAskAgain,  %ININame%, %AppName%, VersionAskAgain
-}
+ }

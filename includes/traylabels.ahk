@@ -4,7 +4,7 @@
 
 CheatSheetHelper:
 	;Header
-	Gui, 1:Add, Picture, x300 y-5 w128, %A_temp%\AutoGTD128.png
+	Gui, 1:Add, Picture, x300 y-5 w128, %A_ScriptDir%\AutoGTD128.png
 	Gui, 1:Font, s2, Arial Black
 	Gui, 1:Add, Text, x+35, `n
 	Gui, 1:Font, s22, Arial Black
@@ -123,14 +123,14 @@ ButtonClose:
 Return
 
 ButtonChangeHotkeys:
-	Run, %A_WinDir%\notepad.exe %A_ScriptDir%\%ININame%
+	Run, %A_WinDir%\notepad.exe %A_WorkingDir%\%ININame%
 Return
 
 ; Once help is complete, restore the original Help
 ;HelpProgram:
 ;	ContentHeight := 575
 ;	WindowHeight := % A_ScreenHeight-300 > ContentHeight ? ContentHeight : A_ScreenHeight-300
-;	Gui, 2:Add, Picture, w200 h-1, %A_temp%\AutoGTDLogo.png
+;	Gui, 2:Add, Picture, w200 h-1, %A_ScriptDir%\AutoGTDLogo.png
 ;	if (WindowHeight < ContentHeight) {
 ;		Gui, 2:Add, Edit, w765 h%WindowHeight% +VScroll +Resize +Readonly -TabStop, %HelpProgramText%
 ;		Gui, 2:Add, Button, Default x345, %A_Space% %A_Space% %A_Space% Close %A_Space% %A_Space% %A_Space%
@@ -144,7 +144,7 @@ Return
 
 
 HelpProgram:
-	Gui, 2:Add, Picture, w200 h-1, %A_temp%\AutoGTDLogo.png
+	Gui, 2:Add, Picture, w200 h-1, %A_ScriptDir%\AutoGTDLogo.png
 	Gui, 2:Add, Text, , %HelpProgramText%
 	Gui, 2:Font, underline
 	Gui, 2:Add, Text, cBlue gWebSiteLinkHelp, %AuthorWebsiteHelp%
@@ -183,7 +183,7 @@ Return
 
 
 AboutProgram:
-	Gui, 3:Add, Picture, w200 h-1, %A_temp%\AutoGTDLogo.png
+	Gui, 3:Add, Picture, w200 h-1, %A_ScriptDir%\AutoGTDLogo.png
 	Gui, 3:Add, Text, , %AppNameFull% %AppVersion%`n by %AuthorName%
 	Gui, 3:Font, underline
 	Gui, 3:Add, Text, cBlue gEmailMe, %AuthorEmail%
@@ -262,7 +262,7 @@ ToggleStartup:
 	If( FileExist( ShortcutFile ) )
 		FileDelete %ShortcutFile%
 	Else
-		FileCreateShortcut %A_ScriptFullPath%, %ShortcutFile%, %A_WorkingDir%,, AutoGTD - Outlook Hotkeys, %A_Temp%/AutoGTD.ico
+		FileCreateShortcut %A_ScriptFullPath%, %ShortcutFile%, %A_WorkingDir%,, AutoGTD - Outlook Hotkeys, %A_ScriptDir%/AutoGTD.ico
 
 	Gosub CheckStartupState
 Return
