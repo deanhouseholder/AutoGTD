@@ -1,8 +1,8 @@
 ;*******************************************************************************
 ;				Information
 ;*******************************************************************************
-;Title:			AutoGTD v0.8
-;Date:			20 April 2012
+;Title:			AutoGTD v0.9
+;Date:			03 May 2012
 ;Author:		Dean Householder <deanhouseholder@gmail.com>
 ; AutoGTD is a set of Outlook Macros to help implement the Getting Things Done
 ; concepts into Outlook.  It provides configurable shortcuts which are able to
