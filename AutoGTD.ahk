@@ -39,11 +39,12 @@
 ;11 June 2010 - 0.5 Initial Release
 ;20 March 2012 - 0.6 Release
 ;20 April 2012 - 0.8 Release
+;03 May 2012 - 0.9 Release
 
 ;*******************************************************************************
 ;				Variables
 ;*******************************************************************************
-AppVersion    = 0.8
+AppVersion    = 0.9
 AppName       = AutoGTD
 AppNameFull   = AutoGTD - Outlook Hotkeys
 AppFileName   = AutoGTD
