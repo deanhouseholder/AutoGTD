@@ -112,8 +112,9 @@ CheatSheetHelper:
 	Gui, 1:Add, Text, x150, `nRemember to reload %AppName% after you make changes to %ININame% in order for the changes to take effect!
 
 	Gui, 1:Font, bold, Tahoma
-	Gui, 1:Add, Button, x300 y660 w150 h35 Default, %A_Space% %A_Space% %A_Space% Close %A_Space% %A_Space% %A_Space%
-	Gui, 1:Add, Button, x525 y660 w150 h35, Change Hotkeys
+	Gui, 1:Add, Button, x200 y660 w150 h35 Default, %A_Space% %A_Space% %A_Space% Close %A_Space% %A_Space% %A_Space%
+	Gui, 1:Add, Button, x400 y660 w150 h35, Change Hotkeys
+	Gui, 1:Add, Button, x600 y660 w150 h35, Print
 
 	Gui, 1:Show, h710 w975, %AppName% Cheat Sheet
 Return
@@ -124,6 +125,17 @@ Return
 
 ButtonChangeHotkeys:
 	Run, %A_WinDir%\notepad.exe %A_WorkingDir%\%ININame%
+Return
+
+ButtonPrint:
+	file := A_Temp "\" A_Now ".png"
+	WinGetPos, x, y, w, h, AutoGTD Cheat Sheet ahk_class AutoHotkeyGUI
+	screen := x . "|" . y . "|" . w . "|" . h
+	Screenshot(file,screen)
+	Run, %A_WinDir%\system32\mspaint.exe %file%
+	WinWait, ahk_class MSPaintApp
+	WinActivate, ahk_class MSPaintApp
+	Send, ^p
 Return
 
 ; Once help is complete, restore the original Help

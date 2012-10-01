@@ -121,3 +121,14 @@ AddTimeHours(i) {
 	Return %var2%
 }
 
+Screenshot(outfile, screen) ; Save screenshot from defined coordinates.
+{
+   pToken := Gdip_Startup()
+   raster := 0x40000000 + 0x00CC0020
+
+   pBitmap := Gdip_BitmapFromScreen(screen,raster)
+
+   Gdip_SaveBitmapToFile(pBitmap, outfile, 100)
+   Gdip_DisposeImage(pBitmap)
+   Gdip_Shutdown(pToken)
+}

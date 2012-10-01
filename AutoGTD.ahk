@@ -68,5 +68,6 @@ JumpToRun    := 0
 #Include includes\traylabels.ahk
 #Include includes\macrofunctions.ahk
 #Include includes\macrolabels.ahk
+#Include includes\Gdip.ahk
 
 Return
