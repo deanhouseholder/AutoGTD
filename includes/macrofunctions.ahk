@@ -11,7 +11,7 @@ CustomFilter(Name, Hotkey, Search, Folder, Read, NormalKey) {
 		ProgressX := x+(w/2)-160
 		ProgressY := y+(h/2)-56
 
-		SplashImage, %A_ScriptDir%\AutoGTDLogoWhite.png, b1 cwffffff ct000000 fm16 wm550 fs10 ws550 x%LogoX% y%LogoY%, Currently Processing Macro: %Name%, , , Arial
+		SplashImage, %A_WorkingDir%\AutoGTDLogoWhite.png, b1 cwffffff ct000000 fm16 wm550 fs10 ws550 x%LogoX% y%LogoY%, Currently Processing Macro: %Name%, , , Arial
 		Progress, 15 WM400 FS8 x%ProgressX% y%ProgressY%,, %AppName% is currently Processing Macro:`n%Name%,Processing, Arial
 
 		Send, ^e%Search%{ENTER}
@@ -51,7 +51,7 @@ CustomFilter(Name, Hotkey, Search, Folder, Read, NormalKey) {
 			Progress, 100
 		} Else {
 			Progress, 75, ,,Canceling - No Matches Found
-			SplashImage, %A_ScriptDir%\AutoGTDLogoWhite.png, b1 cwffffff ct000000 fm16 wm550 fs10 ws550 x%LogoX% y%LogoY%, Macro Failed: %Name%`nPlease try again., , , Arial
+			SplashImage, %A_WorkingDir%\AutoGTDLogoWhite.png, b1 cwffffff ct000000 fm16 wm550 fs10 ws550 x%LogoX% y%LogoY%, Macro Failed: %Name%`nPlease try again., , , Arial
 			Sleep, 70
 			Progress, 60
 			Sleep, 70

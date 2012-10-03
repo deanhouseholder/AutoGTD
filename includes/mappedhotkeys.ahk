@@ -4,7 +4,7 @@
 
 ; Press CTRL+Shift+` to reload the program
 ^+`::
-	SplashImage, %A_ScriptDir%\AutoGTDLogoWhite.png, b1 cwffffff ct000000 fm16 wm550 fs12 ws550, Program Settings Reloaded`n, , , Arial
+	SplashImage, %A_WorkingDir%\AutoGTDLogoWhite.png, b1 cwffffff ct000000 fm16 wm550 fs12 ws550, Program Settings Reloaded`n, , , Arial
 	Sleep, 700
 	SplashImage, Off
 	Reload

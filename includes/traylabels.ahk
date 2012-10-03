@@ -4,7 +4,7 @@
 
 CheatSheetHelper:
 	;Header
-	Gui, 1:Add, Picture, x290 y15 w400, %A_ScriptDir%\AutoGTDLogoGray.png
+	Gui, 1:Add, Picture, x290 y15 w400, %A_WorkingDir%\AutoGTDLogoGray.png
 	Gui, 1:Font, s2, Arial Black
 	Gui, 1:Add, Text, x+35, `n
 	Gui, 1:Font, s22, Arial Black
@@ -142,7 +142,7 @@ Return
 ;HelpProgram:
 ;	ContentHeight := 575
 ;	WindowHeight := % A_ScreenHeight-300 > ContentHeight ? ContentHeight : A_ScreenHeight-300
-;	Gui, 2:Add, Picture, w400 h-1, %A_ScriptDir%\AutoGTDLogoGray.png
+;	Gui, 2:Add, Picture, w400 h-1, %A_WorkingDir%\AutoGTDLogoGray.png
 ;	if (WindowHeight < ContentHeight) {
 ;		Gui, 2:Add, Edit, w765 h%WindowHeight% +VScroll +Resize +Readonly -TabStop, %HelpProgramText%
 ;		Gui, 2:Add, Button, Default x345, %A_Space% %A_Space% %A_Space% Close %A_Space% %A_Space% %A_Space%
@@ -156,14 +156,14 @@ Return
 
 
 HelpProgram:
-	Gui, 2:Add, Picture, w400 h-1, %A_ScriptDir%\AutoGTDLogoGray.png
+	Gui, 2:Add, Picture, w400 h-1, %A_WorkingDir%\AutoGTDLogoGray.png
 	Gui, 2:Add, Text, , %HelpProgramText%
 	Gui, 2:Font, underline
 	Gui, 2:Add, Text, cBlue gWebSiteLinkHelp, %AuthorWebsiteHelp%
 	Gui, 2:Font, normal
 	Gui, 2:Add, Text, ,`nOr please click below to open the Help Documentation.`n
-	Gui, 2:Add, Button, Default x50 y350 w100, Close
-	Gui, 2:Add, Button, Default x175 y350 w100, Open Help
+	Gui, 2:Add, Button, Default x85 y310 w100, Close
+	Gui, 2:Add, Button, Default x210 y310 w100, Open Help
 	Gui, 2:Show, w410, %AppNameFull% - Help
 
 	;Load the cursor and start the "hook"
@@ -190,12 +190,12 @@ Return
 Return
 
 2ButtonOpenHelp:
-	Run, "%A_ScriptDir%\AutoGTD Help.pdf"
+	Run, "%A_WorkingDir%\AutoGTD Help.pdf"
 Return
 
 
 AboutProgram:
-	Gui, 3:Add, Picture, w400 h-1, %A_ScriptDir%\AutoGTDLogoGray.png
+	Gui, 3:Add, Picture, w400 h-1, %A_WorkingDir%\AutoGTDLogoGray.png
 	Gui, 3:Add, Text, x100 , %AppNameFull% %AppVersion%`n by %AuthorName%
 	Gui, 3:Font, underline
 	Gui, 3:Add, Text, x100 cBlue gEmailMe, %AuthorEmail%
@@ -260,7 +260,7 @@ Return
 ; Not yet referenced
 ; Use this to open the directory to edit .ini or open Help PDF
 OpenDirectory:
-	Run, %A_WinDir%\explorer.exe %A_ScriptDir%, , Max
+	Run, %A_WinDir%\explorer.exe %A_WorkingDir%, , Max
 Return
 
 ReloadProgram:
@@ -298,7 +298,7 @@ ToggleStartup:
 	If( FileExist( ShortcutFile ) )
 		FileDelete %ShortcutFile%
 	Else
-		FileCreateShortcut %A_ScriptFullPath%, %ShortcutFile%, %A_WorkingDir%,, AutoGTD - Outlook Hotkeys, %A_ScriptDir%/AutoGTD.ico
+		FileCreateShortcut %A_ScriptFullPath%, %ShortcutFile%, %A_WorkingDir%,, AutoGTD - Outlook Hotkeys, %A_WorkingDir%\AutoGTD.ico
 
 	Gosub CheckStartupState
 Return
