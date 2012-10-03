@@ -4,11 +4,11 @@
 
 CheatSheetHelper:
 	;Header
-	Gui, 1:Add, Picture, x300 y-5 w128, %A_ScriptDir%\AutoGTD128.png
+	Gui, 1:Add, Picture, x290 y15 w400, %A_ScriptDir%\AutoGTD400x122gray.png
 	Gui, 1:Font, s2, Arial Black
 	Gui, 1:Add, Text, x+35, `n
 	Gui, 1:Font, s22, Arial Black
-	Gui, 1:Add, Text, , %AppName%`nShortcuts
+	;Gui, 1:Add, Text, , %AppName%`nShortcuts
 
 	;Text below Header
 	Gui, 1:Font, s10, Tahoma
@@ -62,7 +62,7 @@ CheatSheetHelper:
 	Gui, 1:Add, text, xs, %CheatSheet2b1%
 
 	Gui, 1:Font, s8 bold, Tahoma
-	Gui, 1:Add, text, xs, 
+	Gui, 1:Add, text, xs,
 	Gui, 1:Font, normal
 	Gui, 1:Add, text, xs, %CheatSheet2c1%
 
@@ -142,7 +142,7 @@ Return
 ;HelpProgram:
 ;	ContentHeight := 575
 ;	WindowHeight := % A_ScreenHeight-300 > ContentHeight ? ContentHeight : A_ScreenHeight-300
-;	Gui, 2:Add, Picture, w200 h-1, %A_ScriptDir%\AutoGTDLogo.png
+;	Gui, 2:Add, Picture, w400 h-1, %A_ScriptDir%\AutoGTD400x122gray.png
 ;	if (WindowHeight < ContentHeight) {
 ;		Gui, 2:Add, Edit, w765 h%WindowHeight% +VScroll +Resize +Readonly -TabStop, %HelpProgramText%
 ;		Gui, 2:Add, Button, Default x345, %A_Space% %A_Space% %A_Space% Close %A_Space% %A_Space% %A_Space%
@@ -156,7 +156,7 @@ Return
 
 
 HelpProgram:
-	Gui, 2:Add, Picture, w200 h-1, %A_ScriptDir%\AutoGTDLogo.png
+	Gui, 2:Add, Picture, w400 h-1, %A_ScriptDir%\AutoGTD400x122gray.png
 	Gui, 2:Add, Text, , %HelpProgramText%
 	Gui, 2:Font, underline
 	Gui, 2:Add, Text, cBlue gWebSiteLinkHelp, %AuthorWebsiteHelp%
@@ -164,7 +164,7 @@ HelpProgram:
 	Gui, 2:Add, Text, ,`nOr please click below to open the Help Documentation.`n
 	Gui, 2:Add, Button, Default x50 y350 w100, Close
 	Gui, 2:Add, Button, Default x175 y350 w100, Open Help
-	Gui, 2:Show, w350, %AppNameFull% - Help
+	Gui, 2:Show, w410, %AppNameFull% - Help
 
 	;Load the cursor and start the "hook"
 	hCurs := DllCall("LoadCursor","UInt",NULL,"Int",32649,"UInt") ;IDC_HAND
@@ -181,32 +181,32 @@ HelpProgram:
 		DllCall("SetCursor","UInt",hCurs)
 	  Return
 	}
+Return
 
-	2ButtonClose:
-		Gui 2:Destroy
-		OnMessage(0x200,"")
-		DllCall("DestroyCursor","Uint",hCurs)
-	Return
+2ButtonClose:
+	Gui 2:Destroy
+	OnMessage(0x200,"")
+	DllCall("DestroyCursor","Uint",hCurs)
+Return
 
-	2ButtonOpenHelp:
-		Run, "%A_ScriptDir%\AutoGTD Help.pdf"
-	Return
+2ButtonOpenHelp:
+	Run, "%A_ScriptDir%\AutoGTD Help.pdf"
 Return
 
 
 AboutProgram:
-	Gui, 3:Add, Picture, w200 h-1, %A_ScriptDir%\AutoGTDLogo.png
-	Gui, 3:Add, Text, , %AppNameFull% %AppVersion%`n by %AuthorName%
+	Gui, 3:Add, Picture, w400 h-1, %A_ScriptDir%\AutoGTD400x122gray.png
+	Gui, 3:Add, Text, x100 , %AppNameFull% %AppVersion%`n by %AuthorName%
 	Gui, 3:Font, underline
-	Gui, 3:Add, Text, cBlue gEmailMe, %AuthorEmail%
+	Gui, 3:Add, Text, x100 cBlue gEmailMe, %AuthorEmail%
 	Gui, 3:Font, underline
-	Gui, 3:Add, Text, cBlue gWebSiteLink, %AuthorWebsite%
+	Gui, 3:Add, Text, x100 cBlue gWebSiteLink, %AuthorWebsite%
 	Gui, 3:Font, normal
-	Gui, 3:Add, Text, , %Copyright%
+	Gui, 3:Add, Text, x100, %Copyright%
 	Gui, 3:Font, underline
-	Gui, 3:Add, Text, cBlue gCopyrightConditions, Click Here for license details.`n
+	Gui, 3:Add, Text, x100 cBlue gCopyrightConditions, Click Here for license details.`n
 	Gui, 3:Font, normal
-	Gui, 3:Add, Button, Default x100, &Close
+	Gui, 3:Add, Button, Default x180, &Close
 	Gui, 3:Show,, %AppNameFull% - About
 
 	;Load the cursor and start the "hook"
@@ -224,12 +224,36 @@ AboutProgram:
 		DllCall("SetCursor","UInt",hCurs)
 	  Return
 	}
+Return
 
-	3ButtonClose:
-		Gui 3:Destroy
-		OnMessage(0x200,"")
-		DllCall("DestroyCursor","Uint",hCurs)
-	Return
+3ButtonClose:
+	Gui 3:Destroy
+	OnMessage(0x200,"")
+	DllCall("DestroyCursor","Uint",hCurs)
+Return
+
+
+ShowGuiFailed:
+	WinGetPos, x, y, w, h, Microsoft Outlook ahk_class rctrl_renwnd32
+	CenterX := x+(w/2)-290
+	CenterY := y+(h/2)-122
+
+	Gui, 4:Font, s16 bold, Arial
+	Gui, 4:Add, Text, ,Macro Failed
+	Gui, 4:Font, s10 normal, Arial
+	Gui, 4:Add, Text, ,%MacroFailed%
+	Gui, 4:Add, Button, g4OK w100 x125 y170, OK
+	Gui, 4:Add, Button, g4ChangeHotkeys x275 y170, Change CustomWaitTime
+	Gui, 4:Show, x%CenterX% y%CenterY%, Macro Failed
+	;Sleep, 4000
+Return
+
+4OK:
+	Gui, 4: Destroy
+Return
+
+4ChangeHotkeys:
+	Run, %A_WinDir%\notepad.exe %A_WorkingDir%\%ININame%
 Return
 
 

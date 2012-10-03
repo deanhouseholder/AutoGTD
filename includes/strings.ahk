@@ -323,3 +323,13 @@ This program comes with ABSOLUTELY NO WARRANTY.
 This is free software, and you are welcome to
 redistribute it under certain conditions.
 )
+
+MacroFailed =
+(
+No email matches were found.
+
+If this is wrong, try increasing the CustomWaitTime value in the %ININame% file.
+
+If still no results are returned, check to see if your "Windows Search" Service is running.
+You may need to restart Outlook after starting the service.
+)

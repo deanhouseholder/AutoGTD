@@ -4,11 +4,15 @@
 
 CustomFilter(Name, Hotkey, Search, Folder, Read, NormalKey) {
 	if SafeToRunMacro()	{
-		Global AppName, INIOutlookVersion, CustomWaitTime, ININame
-		;TrayTip, Timed TrayTip, updated %AppName% Program
-		;ToolTip, `n`n`tCurrently Processing Macro: %Name%`t`t`n`n`t`tPress CTRL+Shift+` if the macro fails.`n`n `n, % A_ScreenWidth//2-232, A_ScreenHeight//2-55
-		IfExist, %A_ScriptDir%\%AppName%400x64.gif, SplashImage, %A_ScriptDir%\%AppName%400x64.gif, b1 cwffffff ct000000 fm16 wm550 fs10 ws550 y10, Currently Processing Macro: %Name%, %AppName%, , Arial
-		Progress, 15 WM400 FS8,, %AppName% is currently Processing Macro:`n%Name%,Processing, Arial
+		Global AppName, INIOutlookVersion, CustomWaitTime, ININame, INIScript
+		WinGetPos, x, y, w, h, Microsoft Outlook ahk_class rctrl_renwnd32
+		LogoX := x+(w/2)-212
+		LogoY := y+20
+		ProgressX := x+(w/2)-160
+		ProgressY := y+(h/2)-56
+
+		SplashImage, %A_ScriptDir%\AutoGTD400x122white.png, b1 cwffffff ct000000 fm16 wm550 fs10 ws550 x%LogoX% y%LogoY%, Currently Processing Macro: %Name%, , , Arial
+		Progress, 15 WM400 FS8 x%ProgressX% y%ProgressY%,, %AppName% is currently Processing Macro:`n%Name%,Processing, Arial
 
 		Send, ^e%Search%{ENTER}
 		SleepTime := CustomWaitTime * 1000
@@ -41,13 +45,13 @@ CustomFilter(Name, Hotkey, Search, Folder, Read, NormalKey) {
 		Send, ^+v
 		Sleep, 200
 		Progress, 83
-		Status1 := WinWaitFull("Move Items"),
-		If (Status1 = 0) {
+		Status1 := WinWaitFull("Move Items")
+		If (!ErrorLevel) {
 			Send, {HOME}{NumpadMult}%Folder%{ENTER}
 			Progress, 100
 		} Else {
 			Progress, 75, ,,Canceling - No Matches Found
-			SplashImage, %A_ScriptDir%\%AppName%400x64.gif, b1 cwffffff ct000000 fm16 wm550 fs10 ws550 y10, Macro Failed: %Name%`nPlease try again., %AppName% - Macro Failed!, , Arial
+			SplashImage, %A_ScriptDir%\AutoGTD400x122white.png, b1 cwffffff ct000000 fm16 wm550 fs10 ws550 x%LogoX% y%LogoY%, Macro Failed: %Name%`nPlease try again., , , Arial
 			Sleep, 70
 			Progress, 60
 			Sleep, 70
@@ -60,7 +64,9 @@ CustomFilter(Name, Hotkey, Search, Folder, Read, NormalKey) {
 			Progress, 0
 			Sleep, 300
 			Progress, Off
-			MsgBox,,  Macro Failed,No email matches were found.`n`nIf this happens frequently`, try increasing the CustomWaitTime value in the %ININame% file. `n`nIf still no results are returned`, check to see if your "Windows Search" Service is running. You may need to restart Outlook after starting the service.
+
+			GoSub, ShowGuiFailed
+			;MsgBox,,  Macro Failed,No email matches were found.`n`nIf this happens frequently`, try increasing the CustomWaitTime value in the %ININame% file. `n`nIf still no results are returned`, check to see if your "Windows Search" Service is running. You may need to restart Outlook after starting the service.
 		}
 		Status2 := WinWaitFull("Microsoft Outlook"),
 		If (Status2 = 0)
@@ -68,11 +74,10 @@ CustomFilter(Name, Hotkey, Search, Folder, Read, NormalKey) {
 			Sleep, 200
 			Send, ^e{TAB}{ENTER}
 		}
-		;Progress, 100, ,,Progress
 		SplashImage, Off
-		;ToolTip
-		;TrayTip
 		Progress, Off
+		WinWait, Macro Failed ahk_class AutoHotkeyGUI
+		WinActivate, Macro Failed ahk_class AutoHotkeyGUI
 	} else {
 		Send %NormalKey%
 	}
@@ -154,7 +159,6 @@ CreateTaskFromEmail() {
 	GuiEscape:
 	GuiClose:
 	Gui, 1:Destroy
-	;Return
 
 	ButtonOK:
 	Gui, 1:Submit
