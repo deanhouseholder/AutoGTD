@@ -15,18 +15,6 @@ Progress, Off
 
 
 ;*******************************************************************************
-;				Extract Files
-;*******************************************************************************
-;FileInstall, src\AutoGTD16.ico, %A_ScriptDir%\AutoGTD16.ico, 1
-;FileInstall, src\AutoGTD.ico, %A_ScriptDir%\AutoGTD.ico, 1
-;FileInstall, src\AutoGTD128.png, %A_ScriptDir%\AutoGTD128.png, 1
-;FileInstall, src\AutoGTD400x64.gif, %A_ScriptDir%\AutoGTD400x64.gif, 1
-;FileInstall, src\AutoGTDLogo.png, %A_ScriptDir%\AutoGTDLogo.png, 1
-;FileInstall, src\license.txt, %A_ScriptDir%\license.txt, 1
-;FileInstall, src\AutoGTD Help.pdf, %A_ScriptDir%\AutoGTD Help.pdf, 1
-
-
-;*******************************************************************************
 ;				Menu
 ;*******************************************************************************
 IfEqual, A_IsCompiled, , Menu, Tray, Icon, %A_ScriptDir%\AutoGTD.ico

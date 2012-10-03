@@ -4,7 +4,7 @@
 
 ; Press CTRL+Shift+` to reload the program
 ^+`::
-	SplashImage, %A_ScriptDir%\%AppName%400x122white.png, b1 cwffffff ct000000 fm16 wm550 fs12 ws550, Program Settings Reloaded`n, , , Arial
+	SplashImage, %A_ScriptDir%\AutoGTDLogoWhite.png, b1 cwffffff ct000000 fm16 wm550 fs12 ws550, Program Settings Reloaded`n, , , Arial
 	Sleep, 700
 	SplashImage, Off
 	Reload
@@ -19,12 +19,6 @@ Return
 ; CTRL+Shift+Space to view Cheat Sheet
 ^+Space::
 	GoSub, CheatSheetHelper
-Return
-
-; Shortcut to view the status of the JumpToRun value
-^!+w::
-	if SafeToRunMacro()
-		MsgBox, JumpToRun value: %JumpToRun%
 Return
 
 ; Jump to Outlook - Focus on inbox message view

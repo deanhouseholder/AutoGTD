@@ -52,7 +52,7 @@ ININame       = AutoGTD.ini
 AuthorName    = Dean Householder
 AuthorEmail   = deanhouseholder@gmail.com
 AuthorWebsite = http://www.autogtd.com/
-AuthorWebsiteHelp = http://www.autogtd.com/AutoGTD/help
+AuthorWebsiteHelp = http://www.autogtd.com/help
 ShortcutFile  = %A_Startup%\%AppName%.lnk
 JumpToRun    := 0
 
