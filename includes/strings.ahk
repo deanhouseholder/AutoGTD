@@ -1,4 +1,5 @@
-; Create new hotkey Map variables in order to convert to human-readable versions
+; Create new hotkey "Map" variables in order to convert to human-readable versions
+; i.e. convert ^ to CTRL, ! to ALT, etc.
 Category1HotkeyMap := ConvertModifiers(Category1Hotkey)
 Category2HotkeyMap := ConvertModifiers(Category2Hotkey)
 Category3HotkeyMap := ConvertModifiers(Category3Hotkey)
@@ -81,7 +82,7 @@ RmndAndMove6DaysMap := ConvertModifiers(RmndAndMove6Days)
 RmndAndMove7DaysMap := ConvertModifiers(RmndAndMove7Days)
 
 
-
+; Cheat Sheet Strings
 
 ;Group 1
 CheatSheet1a1 =

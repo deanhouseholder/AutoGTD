@@ -138,22 +138,6 @@ ButtonPrint:
 	Send, ^p
 Return
 
-; Once help is complete, restore the original Help
-;HelpProgram:
-;	ContentHeight := 575
-;	WindowHeight := % A_ScreenHeight-300 > ContentHeight ? ContentHeight : A_ScreenHeight-300
-;	Gui, 2:Add, Picture, w400 h-1, %A_WorkingDir%\AutoGTDLogoGray.png
-;	if (WindowHeight < ContentHeight) {
-;		Gui, 2:Add, Edit, w765 h%WindowHeight% +VScroll +Resize +Readonly -TabStop, %HelpProgramText%
-;		Gui, 2:Add, Button, Default x345, %A_Space% %A_Space% %A_Space% Close %A_Space% %A_Space% %A_Space%
-;		GuiControl,, Edit1, %HelpProgramText%
-;	} Else {
-;		Gui, 2:Add, Text, w765 h%WindowHeight%, %HelpProgramText%
-;		Gui, 2:Add, Button, Default x345, %A_Space% %A_Space% %A_Space% Close %A_Space% %A_Space% %A_Space%
-;	}
-;	Gui, 2:Show,, %AppNameFull% - Help
-;Return
-
 
 HelpProgram:
 	Gui, 2:Add, Picture, w400 h-1, %A_WorkingDir%\AutoGTDLogoGray.png
@@ -256,12 +240,6 @@ Return
 	Run, %A_WinDir%\notepad.exe %A_WorkingDir%\%ININame%
 Return
 
-
-; Not yet referenced
-; Use this to open the directory to edit .ini or open Help PDF
-OpenDirectory:
-	Run, %A_WinDir%\explorer.exe %A_WorkingDir%, , Max
-Return
 
 ReloadProgram:
 	Reload
