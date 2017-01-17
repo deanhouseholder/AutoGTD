@@ -4,7 +4,7 @@
 
 ; Press CTRL+Shift+` to reload the program
 ^+`::
-	SplashImage, %A_WorkingDir%\AutoGTDLogoWhite.png, b1 cwffffff ct000000 fm16 wm550 fs12 ws550, Program Settings Reloaded`n, , , Arial
+	SplashImage, %A_ScriptDir%\AutoGTDLogoWhite.png, b1 cwffffff ct000000 fm16 wm550 fs12 ws550, Program Settings Reloaded`n, , , Arial
 	Sleep, 700
 	SplashImage, Off
 	Reload
@@ -24,4 +24,4 @@ Return
 ; Jump to Outlook - Focus on inbox message view
 ^+i::FocusOnInbox()
 
-; CTRL+SHIFT+2 to pop open a new calendar window
+; TODO: CTRL+SHIFT+2 to pop open a new calendar window

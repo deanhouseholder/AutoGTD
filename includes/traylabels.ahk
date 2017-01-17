@@ -4,7 +4,7 @@
 
 CheatSheetHelper:
 	;Header
-	Gui, 1:Add, Picture, x290 y15 w400, %A_WorkingDir%\AutoGTDLogoGray.png
+	Gui, 1:Add, Picture, x290 y15 w400, %A_ScriptDir%\AutoGTDLogoGray.png
 	Gui, 1:Font, s2, Arial Black
 	Gui, 1:Add, Text, x+35, `n
 	Gui, 1:Font, s22, Arial Black
@@ -124,30 +124,59 @@ ButtonClose:
 Return
 
 ButtonChangeHotkeys:
-	Run, %A_WinDir%\notepad.exe %A_WorkingDir%\%ININame%
+	Gosub, DisplayEditor
 Return
 
 ButtonPrint:
-	file := A_Temp "\" A_Now ".png"
-	WinGetPos, x, y, w, h, AutoGTD Cheat Sheet ahk_class AutoHotkeyGUI
-	screen := x . "|" . y . "|" . w . "|" . h
-	Screenshot(file,screen)
-	Run, %A_WinDir%\system32\mspaint.exe %file%
-	WinWait, ahk_class MSPaintApp
-	WinActivate, ahk_class MSPaintApp
-	Send, ^p
+	;MsgBox, This will open Microsoft Paint and set up the printer for optimal settings.`n%AppName% will make a few changes first, then you may select your printer and press Print.
+	file := A_Temp "\" A_Now ".bmp"
+	CaptureScreen(1, 0, file)
+	If (FileExist(file)) {
+		Run, %A_WinDir%\system32\mspaint.exe %file%
+		WinWait, ahk_class MSPaintApp
+		WinActivate, ahk_class MSPaintApp
+		SendInput, ^p
+		WinWait, Print
+		WinActivate, Print
+		SendInput, !r
+		WinWait, Printing Preferences
+		WinActivate, Printing Preferences
+		SendInput, {CTRL Down}{Tab 2}{Ctrl Up}!r
+		Sleep, 500
+		SendInput, {ALT Down}uo{Alt Up}{Tab}{Home}{Enter}
+	} Else {
+		; This method is a bit less reliable
+		SendInput, {ALT Down}PrintScreen{ALT Up}
+		Sleep, 500
+		Run, %A_WinDir%\system32\mspaint.exe
+		WinWait, ahk_class MSPaintApp
+		WinActivate, ahk_class MSPaintApp
+		SendInput, ^v
+		Sleep, 500
+		SendInput, ^p
+		WinWait, Print
+		WinActivate, Print
+		SendInput, !r
+		WinWait, Printing Preferences
+		WinActivate, Printing Preferences
+		SendInput, {CTRL Down}{Tab 2}{Ctrl Up}!r
+		Sleep, 500
+		SendInput, {ALT Down}uo{Alt Up}{Tab}{Home}{Enter}
+	}
+	Gui 1:Destroy
 Return
 
 
 HelpProgram:
-	Gui, 2:Add, Picture, w400 h-1, %A_WorkingDir%\AutoGTDLogoGray.png
+	Gui, 2:Color, White
+	Gui, 2:Add, Picture, w400 h-1, %A_ScriptDir%\AutoGTDLogoWhite.png
 	Gui, 2:Add, Text, , %HelpProgramText%
 	Gui, 2:Font, underline
 	Gui, 2:Add, Text, cBlue gWebSiteLinkHelp, %AuthorWebsiteHelp%
 	Gui, 2:Font, normal
-	Gui, 2:Add, Text, ,`nOr please click below to open the Help Documentation.`n
-	Gui, 2:Add, Button, Default x85 y310 w100, Close
-	Gui, 2:Add, Button, Default x210 y310 w100, Open Help
+	Gui, 2:Add, Text, ,`nOr please click below to open the local Help Documentation.`n
+	Gui, 2:Add, Button, Default x65 y310 w100, Close
+	Gui, 2:Add, Button, Default x190 y310 w160, Open Local Help File
 	Gui, 2:Show, w410, %AppNameFull% - Help
 
 	;Load the cursor and start the "hook"
@@ -174,12 +203,12 @@ Return
 Return
 
 2ButtonOpenHelp:
-	Run, "%A_WorkingDir%\AutoGTD Help.pdf"
+	Run, "%A_ScriptDir%\AutoGTD Help.pdf"
 Return
 
 
 AboutProgram:
-	Gui, 3:Add, Picture, w400 h-1, %A_WorkingDir%\AutoGTDLogoGray.png
+	Gui, 3:Add, Picture, w400 h-1, %A_ScriptDir%\AutoGTDLogoGray.png
 	Gui, 3:Add, Text, x100 , %AppNameFull% %AppVersion%`n by %AuthorName%
 	Gui, 3:Font, underline
 	Gui, 3:Add, Text, x100 cBlue gEmailMe, %AuthorEmail%
@@ -218,18 +247,22 @@ Return
 
 
 ShowGuiFailed:
-	WinGetPos, x, y, w, h, Microsoft Outlook ahk_class rctrl_renwnd32
-	CenterX := x+(w/2)-290
+	WinGetPos, x, y, w, h, Outlook ahk_class rctrl_renwnd32
+	CenterX := x+(w/2)-340
 	CenterY := y+(h/2)-122
 
+	Gui, 4:-Caption +AlwaysOnTop +Border
+	Gui, 4:Color, White
+	Gui, 4:Add, Picture, x65 y0 h122 w400, %A_ScriptDir%\AutoGTDLogoWhite.png
 	Gui, 4:Font, s16 bold, Arial
-	Gui, 4:Add, Text, ,Macro Failed
-	Gui, 4:Font, s10 normal, Arial
-	Gui, 4:Add, Text, ,%MacroFailed%
-	Gui, 4:Add, Button, g4OK w100 x125 y170, OK
-	Gui, 4:Add, Button, g4ChangeHotkeys x275 y170, Change CustomWaitTime
+	Gui, 4:Add, Text, x165, Macro Failed
+	Gui, 4:Font, x10 s10 normal, Arial
+	Gui, 4:Add, Text, x10 y+15, %MacroFailed%
+	Gui, 4:Add, Button, g4OK w100 x125 y275, OK
+	Gui, 4:Add, Button, g4ChangeHotkeys x275 y275, Change CustomWaitTime
+	Gui, 4:Font, s2 bold, Arial
+	Gui, 4:Add, Text, x10 y+6 hidden,
 	Gui, 4:Show, x%CenterX% y%CenterY%, Macro Failed
-	;Sleep, 4000
 Return
 
 4OK:

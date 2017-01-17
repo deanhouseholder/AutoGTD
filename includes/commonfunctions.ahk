@@ -11,13 +11,29 @@ WinWaitFull(win) {
 	}
 }
 
+; Function to simplify window activating
+WinWaitFullFast(win) {
+	SetWinDelay, 3
+	WinWait, %win%, , 1
+	If ErrorLevel {
+		Return 1
+	} else {
+		IfWinNotActive, %win%, , WinActivate, %win%
+		WinWaitActive, %win%, , 1
+		Return 0
+	}
+}
+
+; Determine if it's safe to execute a macro, or whether the user intends to type into a message interface
 SafeToRunMacro() {
-	IfWinActive, - Microsoft Outlook ahk_class rctrl_renwnd32, NUIDocumentWindow
+	IfWinActive, ahk_class rctrl_renwnd32
 	{
 		ControlGetFocus, CurrentCtrl
-		;MsgBox, Current focus: %CurrentCtrl%
-		CtrlList = Acrobat Preview Window1,AfxWndW5,AfxWndW6,EXCEL71,MsoCommandBar1,OlkPicturePreviewer1,paneClassDC1,RichEdit20WPT2,RichEdit20WPT4,RichEdit20WPT5,RICHEDIT50W1,SUPERGRID1,SUPERGRID2,_WwG1,AfxWndW16
+		; MsgBox, Current focus: %CurrentCtrl%
+		; The following is a list of Controls that should allow triggering of macros
+		CtrlList = Acrobat Preview Window1,AfxWndW5,AfxWndW6,EXCEL71,MsoCommandBar1,OlkPicturePreviewer1,paneClassDC1,RichEdit20WPT2,RichEdit20WPT4,RichEdit20WPT5,RICHEDIT50W1,SUPERGRID1,SUPERGRID2,AfxWndW16,OutlookGrid1,NetUIHWND4
 		; removed RichEdit20WPT2 to make Outlook GTD work
+		; removed _WwG1 and _WwG2 to work with Outlook 2013
 		if CurrentCtrl in %CtrlList%
 		{
 			Return, True
@@ -27,10 +43,11 @@ SafeToRunMacro() {
 	}
 }
 
-SafeToRunMacroOther() {
+; Determine if it's safe to close the current window (as opposed to the Main Outlook window)
+SafeToRunMacroClose() {
 	IfWinActive, - ahk_class rctrl_renwnd32
 	{
-		IfWinNotActive - Microsoft Outlook ahk_class rctrl_renwnd32, NUIDocumentWindow
+		IfWinNotActive Outlook ahk_class rctrl_renwnd32, NUIDocumentWindow
 		{
 			Return, True
 		} else {
@@ -39,6 +56,7 @@ SafeToRunMacroOther() {
 	}
 }
 
+; Check if safe before executing macro, else send what they actually pressed
 RunMacro(SpecialKey, NormalKey) {
 	if SafeToRunMacro()
 	{
@@ -48,6 +66,7 @@ RunMacro(SpecialKey, NormalKey) {
 	}
 }
 
+; Display macro hotkeys as "human-readable" version for Cheat Sheet page
 ConvertModifiers(x){
 	StringReplace, y, x, +, SHIFT+, All
 	StringReplace, y, y, ^, CTRL+, All
@@ -58,42 +77,55 @@ ConvertModifiers(x){
 
 ; Check the Outlook Version via the Registry
 CheckOutlookVersionRegistry() {
-	RegRead,OutlookVer8,HKEY_LOCAL_MACHINE,SOFTWARE\Microsoft\Office\8.0\Outlook\InstallRoot,path ; 1997
-	RegRead,OutlookVer9,HKEY_LOCAL_MACHINE,SOFTWARE\Microsoft\Office\9.0\Outlook\InstallRoot,path ; 2000
-	RegRead,OutlookVer10,HKEY_LOCAL_MACHINE,SOFTWARE\Microsoft\Office\10.0\Outlook\InstallRoot,path ; 2002
-	RegRead,OutlookVer11,HKEY_LOCAL_MACHINE,SOFTWARE\Microsoft\Office\11.0\Outlook\InstallRoot,path ; 2003
-	RegRead,OutlookVer12,HKEY_LOCAL_MACHINE,SOFTWARE\Microsoft\Office\12.0\Outlook\InstallRoot,path ; 2007
-	RegRead,OutlookVer14,HKEY_LOCAL_MACHINE,SOFTWARE\Microsoft\Office\14.0\Outlook\InstallRoot,path ; 2010
+	RegRead, OutlookVer8,  HKEY_LOCAL_MACHINE, SOFTWARE\Microsoft\Office\8.0\Outlook\InstallRoot,  path        ; 1997
+	RegRead, OutlookVer9,  HKEY_LOCAL_MACHINE, SOFTWARE\Microsoft\Office\9.0\Outlook\InstallRoot,  path        ; 2000
+	RegRead, OutlookVer10, HKEY_LOCAL_MACHINE, SOFTWARE\Microsoft\Office\10.0\Outlook\InstallRoot, path        ; 2002
+	RegRead, OutlookVer11, HKEY_LOCAL_MACHINE, SOFTWARE\Microsoft\Office\11.0\Outlook\InstallRoot, path        ; 2003
+	RegRead, OutlookVer12, HKEY_LOCAL_MACHINE, SOFTWARE\Microsoft\Office\12.0\Outlook\InstallRoot, path        ; 2007
+	RegRead, OutlookVer14, HKEY_CURRENT_USER,  Software\Microsoft\Office\14.0\Outlook\,            OutlookName ; 2010
+	RegRead, OutlookVer15, HKEY_CURRENT_USER,  Software\Microsoft\Office\15.0\Outlook\,            OutlookName ; 2013
+	RegRead, OutlookVer16, HKEY_CURRENT_USER,  Software\Microsoft\Office\16.0\Outlook\,            OutlookName ; 2016
 
-	IfExist,%OutlookVer8%
+	; Find the latest version of Outlook and set variables to it
+	If (%OutlookVer8% != "")
 	{
 		OutlookVersion := 8
 		OutlookYear := 1997
 	}
-	IfExist,%OutlookVer9%
+	If (%OutlookVer9% != "")
 	{
 		OutlookVersion := 9
 		OutlookYear := 2000
 	}
-	IfExist,%OutlookVer10%
+	If (%OutlookVer10% != "")
 	{
 		OutlookVersion := 10
 		OutlookYear := 2002
 	}
-	IfExist,%OutlookVer11%
+	If (%OutlookVer11% != "")
 	{
 		OutlookVersion := 11
 		OutlookYear := 2003
 	}
-	IfExist,%OutlookVer12%
+	If (%OutlookVer12% != "")
 	{
 		OutlookVersion := 12
 		OutlookYear := 2007
 	}
-	IfExist,%OutlookVer14%
+	If (OutlookVer14 != "")
 	{
 		OutlookVersion := 14
 		OutlookYear := 2010
+	}
+	If (OutlookVer15 != "")
+	{
+		OutlookVersion := 15
+		OutlookYear := 2013
+	}
+	If (OutlookVer16 != "")
+	{
+		OutlookVersion := 16
+		OutlookYear := 2016
 	}
 
 	Return %OutlookYear%
@@ -107,6 +139,7 @@ CenterBox(BoxX, BoxY) {
 	Return "x" CenterX " y" CenterY
 }
 
+; Format time in days
 AddTimeDays(i) {
 	var1 =
 	var1 += %i%, days
@@ -114,21 +147,29 @@ AddTimeDays(i) {
 	Return %var2%
 }
 
+; Format time in hours
 AddTimeHours(i) {
-	var1 = 
+	var1 =
 	var1 += %i%, hours
 	FormatTime, var2,%var1%,h:mm tt
 	Return %var2%
 }
 
-Screenshot(outfile, screen) ; Save screenshot from defined coordinates.
-{
-   pToken := Gdip_Startup()
-   raster := 0x40000000 + 0x00CC0020
+; Check to see if the currently used .ini file is writable
+CheckWritableIni(ini) {
+	Global AppName
+	IniWrite, writable, %ini%, %AppName%, WriteTest
+	If ErrorLevel {
+		Return, false
+	} else {
+		IniDelete, %ini%, %AppName%, WriteTest
+		Return, true
+	}
+}
 
-   pBitmap := Gdip_BitmapFromScreen(screen,raster)
-
-   Gdip_SaveBitmapToFile(pBitmap, outfile, 100)
-   Gdip_DisposeImage(pBitmap)
-   Gdip_Shutdown(pToken)
+; Extract a copy of the default .ini file and restart
+ExtractIniFile(path, replace=0) {
+	FileInstall, src\AutoGTDDefault.ini, %path%, %replace%
+	Reload
+	Sleep, 100000 ; Prevent continuing running script
 }

@@ -188,7 +188,7 @@ FocusOnSearch:
 Return
 
 SearchAll:
-	RunMacro("^!a", A_ThisHotkey)
+	RunMacro("^!a^e", A_ThisHotkey)
 Return
 
 OpenContextMenu:
@@ -305,4 +305,3 @@ RmndAndMove7Days:
 	RemindDayAuto(7, A_ThisHotkey)
 	MoveSelected(RmndAndMoveFoldr, A_ThisHotkey)
 Return
-

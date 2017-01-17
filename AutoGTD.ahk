@@ -1,9 +1,9 @@
 ;*******************************************************************************
 ;				Information
 ;*******************************************************************************
-;Title:			AutoGTD v0.9
-;Date:			03 May 2012
-;Author:		Dean Householder <deanhouseholder@gmail.com>
+; Title:		AutoGTD v1.1
+; Date:			14 Aug 2015
+; Author:		Dean Householder <deanhouseholder@gmail.com>
 ; AutoGTD is a set of Outlook Macros to help implement the Getting Things Done
 ; concepts into Outlook.  It provides configurable shortcuts which are able to
 ; move emails to folders, add categories, reminders, and flags to emails.  It
@@ -34,17 +34,9 @@
 
 
 ;*******************************************************************************
-;				Version History
-;*******************************************************************************
-;11 June 2010 - 0.5 Initial Release
-;20 March 2012 - 0.6 Release
-;20 April 2012 - 0.8 Release
-;03 May 2012 - 0.9 Release
-
-;*******************************************************************************
 ;				Variables
 ;*******************************************************************************
-AppVersion    = 0.9
+AppVersion    = 1.2
 AppName       = AutoGTD
 AppNameFull   = AutoGTD - Outlook Hotkeys
 AppFileName   = AutoGTD
@@ -54,20 +46,22 @@ AuthorEmail   = deanhouseholder@gmail.com
 AuthorWebsite = http://www.autogtd.com/
 AuthorWebsiteHelp = http://www.autogtd.com/help
 ShortcutFile  = %A_Startup%\%AppName%.lnk
-JumpToRun    := 0
 
 ;*******************************************************************************
 ;				Load Includes
 ;*******************************************************************************
-#Include includes\top.ahk
-#Include includes\commonfunctions.ahk
-#Include includes\iniread.ahk
-;#Include includes\runchecks.ahk
-#Include includes\strings.ahk
-#Include includes\mappedhotkeys.ahk
-#Include includes\traylabels.ahk
-#Include includes\macrofunctions.ahk
-#Include includes\macrolabels.ahk
-#Include includes\Gdip.ahk
-
-Return
+#Include %A_ScriptDir%\includes\commonfunctions.ahk
+#Include %A_ScriptDir%\includes\macrofunctions.ahk
+#Include %A_ScriptDir%\includes\editorfunctions.ahk
+#Include %A_ScriptDir%\includes\top.ahk
+#Include %A_ScriptDir%\includes\iniread.ahk
+#Include %A_ScriptDir%\includes\runchecks.ahk
+#Include %A_ScriptDir%\includes\strings.ahk
+#Include %A_ScriptDir%\includes\editorhotkeymath.ahk
+#Include %A_ScriptDir%\includes\macrolabels.ahk
+#Include %A_ScriptDir%\includes\editor.ahk
+#Include %A_ScriptDir%\includes\Gdip.ahk
+#Include %A_ScriptDir%\includes\mappedhotkeys.ahk
+#Include %A_ScriptDir%\includes\traylabels.ahk
+#Include %A_ScriptDir%\includes\editorsavelabel.ahk
+#Include %A_ScriptDir%\includes\scrollbar.ahk

@@ -22,7 +22,6 @@ IniRead, Category9Name,     %ININame%, %AppName%, Category9Name
 IniRead, Category10Hotkey,  %ININame%, %AppName%, Category10Hotkey
 IniRead, Category10Name,    %ININame%, %AppName%, Category10Name
 IniRead, OpenCategories,    %ININame%, %AppName%, OpenCategories
-IniRead, MoveToAction,      %ININame%, %AppName%, MoveToAction
 IniRead, SetReminder,       %ININame%, %AppName%, SetReminder
 IniRead, CreateTask,        %ININame%, %AppName%, CreateTask
 IniRead, NewAppointment,    %ININame%, %AppName%, NewAppointment
@@ -130,7 +129,7 @@ IniRead, RmndAndMove5Days,  %ININame%, %AppName%, RmndAndMove5Days
 IniRead, RmndAndMove6Days,  %ININame%, %AppName%, RmndAndMove6Days
 IniRead, RmndAndMove7Days,  %ININame%, %AppName%, RmndAndMove7Days
 
-Hotkey, IfWinActive, - Microsoft Outlook ahk_class rctrl_renwnd32, NUIDocumentWindow
+Hotkey, IfWinActive, Outlook ahk_class rctrl_renwnd32, NUIDocumentWindow
 Hotkey, %Category1Hotkey%,  Category1,        UseErrorLevel
 Hotkey, %Category2Hotkey%,  Category2,        UseErrorLevel
 Hotkey, %Category3Hotkey%,  Category3,        UseErrorLevel
@@ -232,4 +231,3 @@ Hotkey, IfWinActive
 Hotkey, IfWinActive, - Discussion ahk_class rctrl_renwnd32
 Hotkey, %CloseWindow%,      CloseWindow,      UseErrorLevel
 Hotkey, IfWinActive
-
