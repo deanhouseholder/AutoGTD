@@ -1,5 +1,7 @@
 ![Logo](http://www.autogtd.com/wp-content/uploads/2014/12/logo1.png)
 
+For more information, visit the website at: https://autogtd.com/
+
 ## Introduction
 AutoGTD is a program that helps you implement the Getting Things Done (GTD) methodology in Microsoft Outlook by giving you macros with hotkeys that you can use to quickly organize your email messages to folders under your Inbox. These macros are often activated by pressing a single character or combinations of Key Modifiers such as CTRL/ALT/Shift/Win and a key. 
 
